@@ -75,3 +75,5 @@ Facebook deixa de ser apenas uma rede social e passa a fazer parte de um ecossis
 ✔ Influenciou política, marketing e comportamento social
 
 ✔ Expandiu o conceito de rede social para um ambiente digital completo (Meta)
+
+Referências: Chat GPT e Wikipédia
