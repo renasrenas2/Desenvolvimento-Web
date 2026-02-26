@@ -1,0 +1,77 @@
+📌 2004 – Criação do Facebook
+
+Fundado por Mark Zuckerberg junto com colegas da Harvard University.
+Inicialmente chamado “TheFacebook”.
+Era exclusivo para estudantes de Harvard.
+
+📌 2005 – Expansão Universitária
+
+Remove o “The” do nome e passa a se chamar Facebook.
+Expande para outras universidades dos EUA.
+Começa a ganhar investimento e estrutura empresarial.
+
+📌 2006 – Aberto ao Público
+
+Qualquer pessoa acima de 13 anos com e-mail podia criar conta.
+Introdução do Feed de Notícias (News Feed) — marco que mudou o conceito de rede social, tornando o conteúdo dinâmico e centralizado.
+🔎 Impacto: O Facebook deixa de ser apenas um “perfil online” e passa a ser um fluxo constante de informações e interações.
+
+📌 2009 – Botão “Curtir”
+
+Lançamento do botão Like (Curtir).
+Introduz a cultura da validação social digital.
+🔎 Impacto: Molda o comportamento nas redes sociais, influenciando engajamento e algoritmos.
+
+📌 2012 – Aquisição do Instagram
+
+O Facebook compra o Instagram.
+Abre capital na bolsa (IPO).
+🔎 Impacto: Consolida domínio no mercado de redes sociais e fortalece o modelo baseado em imagens e engajamento visual.
+
+📌 2014 – Aquisições Estratégicas
+
+Compra do WhatsApp.
+Compra da Oculus VR.
+🔎 Impacto: Expansão para mensagens privadas e início dos investimentos em realidade virtual.
+
+📌 2016–2018 – Influência Global e Polêmicas
+
+Facebook se torna peça central em campanhas políticas e debates globais.
+Escândalo da Cambridge Analytica expõe uso indevido de dados.
+🔎 Impacto: Debate mundial sobre privacidade, manipulação de informações e poder das redes sociais.
+
+📌 2020 – Consolidação como Ecossistema Digital
+
+Integração mais forte entre Facebook, Instagram e WhatsApp.
+Foco em criadores de conteúdo, marketplace e monetização.
+
+📌 2021 – Transformação em Meta
+
+Facebook Inc. passa a se chamar Meta Platforms.
+Anúncio do foco no Metaverso.
+🔎 Impacto: Mudança de visão: de rede social para empresa de tecnologia focada em realidade virtual, aumentada e experiências digitais imersivas.
+
+📌 2022–Atualidade
+
+Investimentos em:
+
+Realidade virtual (Oculus/Meta Quest)
+
+Inteligência artificial
+
+Ambientes virtuais (Metaverso)
+
+Facebook deixa de ser apenas uma rede social e passa a fazer parte de um ecossistema digital integrado.
+
+
+🎯 Como o Facebook Moldou o Conceito de Rede Social
+
+✔ Criou o modelo de feed algorítmico
+
+✔ Popularizou a cultura do like e compartilhamento
+
+✔ Transformou dados em modelo de negócio (publicidade segmentada)
+
+✔ Influenciou política, marketing e comportamento social
+
+✔ Expandiu o conceito de rede social para um ambiente digital completo (Meta)
