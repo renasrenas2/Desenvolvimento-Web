@@ -1,1 +1,3 @@
 Reflexão Renato Moreira:
+
+A Web transformou a Engenharia de Software ao levar o desenvolvimento para o mundo inteiro, isso tornou a Engenharia de Software mais centrada nas necessidades das pessoas, usando a experiência do usuário para desenvolver e adaptar as necessidades do software, deixando de focar apenas na funcionalidade. Um exemplo disso é o Facebook, que precisou evoluir constantemente com base no comportamento dos usuários, tornando o software um sistema vivo, em permanente adaptação. E a transformação do Facebook em Meta mostra que a Web continua evoluindo, integrando inteligência artificial, realidade virtual e ambientes imersivos. Concluindo, a Web redefiniu completamente a Engenharia de Software, deixando ela mais complexa e socialmente relevante.
