@@ -12,9 +12,13 @@ illustrious-twilight-e34e29.netlify.app
 # Referências Bibliográficas
 
 1. Web e Segurança (HTTP/HTTPS)
-https://datatracker.ietf.org/doc/html/rfc9110
+
 RFC 9110 - HTTP Semantics: O documento atualizado que define como o HTTP funciona (verbos, headers e status).
+https://datatracker.ietf.org/doc/html/rfc9110
+
 RFC 8446 - The TLS Protocol v1.3: A base do HTTPS moderno e como a criptografia é estabelecida.
+https://datatracker.ietf.org/doc/html/rfc8446
+
 CA/Browser Forum Baseline Requirements: As regras globais para as Autoridades Certificadoras e Certificados Digitais.
 
 
