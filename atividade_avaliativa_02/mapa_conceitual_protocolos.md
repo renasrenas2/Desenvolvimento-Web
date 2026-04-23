@@ -22,16 +22,25 @@ https://datatracker.ietf.org/doc/html/rfc8446
 CA/Browser Forum Baseline Requirements: As regras globais para as Autoridades Certificadoras e Certificados Digitais.
 
 
-3. Transferência de Arquivos (FTP/SFTP/SSH)
+2. Transferência de Arquivos (FTP/SFTP/SSH)
 RFC 959 - File Transfer Protocol (FTP): A especificação original do FTP (Portas 20/21 e Modos Ativo/Passivo).
+https://datatracker.ietf.org/doc/html/rfc959
+
 RFC 4253 - SSH Transport Layer Protocol: Define a segurança do túnel SSH que o SFTP utiliza.
+https://datatracker.ietf.org/doc/html/rfc4253
+
 SSH File Transfer Protocol (Draft): O rascunho técnico que detalha o funcionamento específico do SFTP.
 
 
-4. Comunicação em Tempo Real
+3. Comunicação em Tempo Real
 RFC 6455 - The WebSocket Protocol: O padrão que define a conexão bidirecional e o upgrade de protocolo.
+https://datatracker.ietf.org/doc/html/rfc6455
 
 
 5. Arquitetura de Redes (Encapsulamento)
 RFC 1122 - Requirements for Internet Hosts: Define as camadas do modelo TCP/IP que vimos no slide de encapsulamento.
+https://datatracker.ietf.org/doc/html/rfc1122
+
 The OSI Model (ISO/IEC 7498-1): O padrão internacional para a arquitetura de sistemas abertos (as 7 camadas).
+https://www.iso.org/standard/20269.html
+
