@@ -12,7 +12,7 @@ illustrious-twilight-e34e29.netlify.app
 
 # Referências Bibliográficas
 
-1. Web e Segurança (HTTP/HTTPS)
+# 1. Web e Segurança (HTTP/HTTPS)
 
 RFC 9110 - HTTP Semantics: O documento atualizado que define como o HTTP funciona (verbos, headers e status).
 https://datatracker.ietf.org/doc/html/rfc9110
@@ -23,7 +23,7 @@ https://datatracker.ietf.org/doc/html/rfc8446
 CA/Browser Forum Baseline Requirements: As regras globais para as Autoridades Certificadoras e Certificados Digitais.
 
 
-2. Transferência de Arquivos (FTP/SFTP/SSH)
+# 2. Transferência de Arquivos (FTP/SFTP/SSH)
    
 RFC 959 - File Transfer Protocol (FTP): A especificação original do FTP (Portas 20/21 e Modos Ativo/Passivo).
 https://datatracker.ietf.org/doc/html/rfc959
@@ -36,12 +36,12 @@ https://datatracker.ietf.org/doc/html/rfc4253
 SSH File Transfer Protocol (Draft): O rascunho técnico que detalha o funcionamento específico do SFTP.
 
 
-3. Comunicação em Tempo Real
+# 3. Comunicação em Tempo Real
 RFC 6455 - The WebSocket Protocol: O padrão que define a conexão bidirecional e o upgrade de protocolo.
 https://datatracker.ietf.org/doc/html/rfc6455
 
 
-5. Arquitetura de Redes (Encapsulamento)
+# 4. Arquitetura de Redes (Encapsulamento)
 RFC 1122 - Requirements for Internet Hosts: Define as camadas do modelo TCP/IP que vimos no slide de encapsulamento.
 
 https://datatracker.ietf.org/doc/html/rfc1122
