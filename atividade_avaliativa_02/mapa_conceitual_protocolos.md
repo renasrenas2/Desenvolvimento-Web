@@ -43,6 +43,7 @@ https://datatracker.ietf.org/doc/html/rfc6455
 
 5. Arquitetura de Redes (Encapsulamento)
 RFC 1122 - Requirements for Internet Hosts: Define as camadas do modelo TCP/IP que vimos no slide de encapsulamento.
+
 https://datatracker.ietf.org/doc/html/rfc1122
 
 The OSI Model (ISO/IEC 7498-1): O padrão internacional para a arquitetura de sistemas abertos (as 7 camadas).
