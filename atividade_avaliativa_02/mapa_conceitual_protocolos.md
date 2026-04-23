@@ -31,6 +31,7 @@ https://datatracker.ietf.org/doc/html/rfc959
 RFC 4253 - SSH Transport Layer Protocol: Define a segurança do túnel SSH que o SFTP utiliza.
 https://datatracker.ietf.org/doc/html/rfc4253
 
+
 SSH File Transfer Protocol (Draft): O rascunho técnico que detalha o funcionamento específico do SFTP.
 
 
