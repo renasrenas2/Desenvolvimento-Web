@@ -24,6 +24,7 @@ CA/Browser Forum Baseline Requirements: As regras globais para as Autoridades Ce
 
 
 2. Transferência de Arquivos (FTP/SFTP/SSH)
+   
 RFC 959 - File Transfer Protocol (FTP): A especificação original do FTP (Portas 20/21 e Modos Ativo/Passivo).
 https://datatracker.ietf.org/doc/html/rfc959
 
