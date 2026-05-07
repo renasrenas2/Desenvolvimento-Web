@@ -1,1 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafios da Formação de Engenheiros de Software – ES Moderna</title>
+    <link rel="stylesheet" href="https://engsoftmoderna.info/helper/pico.min.css"/>
+    <style>
+        :root { --primary: #5a2d82; }
+        .skip-link { position: absolute; top: -100px; left: 0; background: var(--primary); color: white; padding: 10px; z-index: 1000; }
+        .skip-link:focus { top: 0; }
+        #dark-mode-toggle { color: var(--primary); border: 1px solid var(--primary); background: transparent; cursor: pointer; }
+        header img.capa-livro { max-width: 180px; margin-top: 20px; transition: transform 0.3s; }
+        header img.capa-livro:hover { transform: scale(1.05); }
+        footer { background-color: var(--card-background-color); padding: 2rem 0; margin-top: 4rem; border-top: 2px solid var(--primary); }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+        blockquote { font-style: italic; border-left: 5px solid var(--primary); }
+    </style>
+</head>
+<body>
 
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+    <header class="container">
+        <nav aria-label="Navegação Principal">
+            <ul>
+                <li>
+                    <a href="https://engsoftmoderna.info" aria-label="Página Inicial do Livro">
+                        <img src="https://engsoftmoderna.info/figs/capa/capa-principal.png" alt="Capa do livro Engenharia de Software Moderna" class="capa-livro">
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="https://engsoftmoderna.info">Página Principal</a></li>
+                <li><button id="dark-mode-toggle">Modo Dark</button></li>
+            </ul>
+        </nav>
+        <div class="banner-livro" style="padding: 10px; background: var(--code-background-color); border-radius: 5px; margin-top: 10px;">
+            <p>Veja também nosso novo livro: <a href="https://manutencaosoftware.org/">Fundamentos de Manutenção de Software</a></p>
+        </div>
+    </header>
+
+    <main class="container" id="main-content" tabindex="-1">
+        <article>
+            <header>
+                <h1>1. Desafios da Formação de Engenheiros de Software</h1>
+                <p>Por <strong>Marco Tulio Valente</strong></p>
+            </header>
+
+            <section id="introducao">
+                <h2>1.1 Introdução</h2>
+                <p>Em 2019, ministrei pela primeira vez um curso de Engenharia de Software para alunos de graduação. Desde então, tenho estudado, trabalhado e refletido sobre questões ligadas à formação qualificada de Engenheiros de Software no Brasil. Assim, neste artigo, vou compartilhar minha visão sobre os desafios envolvidos nessa tarefa.</p>
+            </section>
+
+            <section id="relevancia">
+                <h2>1.2 Relevância</h2>
+                <p>Primeiro, para delimitar o contexto deste artigo, acho importante começar lembrando que Engenharia de Software é cada vez mais essencial na formação de alunos de Ciência da Computação, Sistemas de Informação, Engenharia de Computação, etc.</p>
+                <figure>
+                    <img src="https://engsoftmoderna.info/artigos/figs/desafios-engsoft.png" alt="Gráfico de proporção: Grandes empresas possuem de 10 a 20 vezes mais engenheiros de software do que outras áreas técnicas.">
+                    <figcaption>Proporção de Engenheiros de Software versus Cientistas da Computação.</figcaption>
+                </figure>
+                <h3>Contexto Brasileiro</h3>
+                <p>Temos no Brasil capacidade e vocação para um mercado global, mas há um descasamento paradoxal entre a oferta e a demanda de profissionais de TI.</p>
+            </section>
+
+            <section id="eixos">
+                <h2>1.3 Eixos de Formação</h2>
+                <p>A formação qualificada requer um conjunto de esforços em dois eixos:</p>
+                <ul>
+                    <li><strong>Eixo Central:</strong> Desafios de ordem conceitual e prática.</li>
+                    <li><strong>Eixo Transversal:</strong> Habilidades comportamentais (soft skills) e visão de negócios.</li>
+                </ul>
+                <figure>
+                    <img src="https://engsoftmoderna.info/artigos/figs/eixos-formacao-es.jpg" alt="Infográfico detalhando os eixos Central e Transversal.">
+                </figure>
+            </section>
+
+            <section id="eixo-central">
+                <h2>1.4 Eixo Central de Formação</h2>
+                <h3>Formação Conceitual</h3>
+                <p>Envolve transmitir conceitos, práticas e princípios modernos de processos, projeto, arquitetura, testes e manutenção. O objetivo é maximizar o valor de cada página do aprendizado.</p>
+                <blockquote>"Eu não tive tempo de escrever uma carta curta, então acabei escrevendo uma carta longa..." — Mark Twain</blockquote>
+                
+                <h3>Formação Prática</h3>
+                <p>De nada adianta a teoria sem a prática. Linus Torvalds já dizia: <em>"Falar é fácil, me mostre o código"</em>. Na graduação da UFMG, focamos em trabalhos em equipe que simulam sistemas reais com métodos ágeis.</p>
+            </section>
+
+            <section id="eixo-transversal">
+                <h2>1.5 Eixo Transversal de Formação</h2>
+                <h3>Formação Comportamental</h3>
+                <p>O engenheiro moderno deve saber trabalhar em equipe, liderar, comunicar-se e ouvir. Soft skills são os mais demandados hoje no Stack Overflow Jobs.</p>
+                <figure>
+                    <img src="https://engsoftmoderna.info/artigos/figs/soft-skills.jpg" alt="Lista de soft skills: Comunicação, Trabalho em Equipe, Liderança e Adaptabilidade.">
+                </figure>
+                <h3>Formação em Negócios</h3>
+                <p>Não basta escrever código; é preciso entender o valor gerado para o negócio. O desenvolvedor deve ser capaz de propor melhorias que ampliem a base de clientes ou reduzam custos.</p>
+            </section>
+
+            <section id="conclusao">
+                <h2>1.6 Conclusão</h2>
+                <p>Dois pré-requisitos são fundamentais: o aluno deve <strong>gostar</strong> de programar e <strong>saber</strong> programar (algoritmos e estruturas de dados). Engenharia de Software é o motor da transformação digital.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Engenharia de Software Moderna</h3>
+                    <p>© 2024 Marco Tulio Valente. Conteúdo para fins educacionais.</p>
+                    <p><small>Desenvolvido seguindo normas de Acessibilidade e HTML5 Semântico.</small></p>
+                </div>
+                <div>
+                    <h4>Links Úteis</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="https://manutencaosoftware.org/">Manutenção de Software</a></li>
+                        <li><a href="https://forms.gle/YhKNRZjkHu7ASc7M8">Reportar Erro / Feedback</a></li>
+                        <li><a href="#main-content">Ir para o topo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('dark-mode-toggle');
+        btn.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            btn.textContent = theme === 'dark' ? 'Modo Light' : 'Modo Dark';
+        });
+    </script>
+</body>
+</html>
