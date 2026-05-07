@@ -1,5 +1,5 @@
-# 🚀 Desafio: Reestruturação Semântica e Acessibilidade Digital
-
+# 🚀 Desafio: Reestruturação Semântica e Acessibilidade Digital 
+## Atividade correspondente ao dia 30/04
 Este repositório contém a atividade prática de reestruturação do artigo "Desafios da Formação de Engenheiros de Software". O foco foi transformar um código-fonte genérico e automático em uma página web moderna e inclusiva.
 
 ## 📂 Estrutura do Repositório
