@@ -1,37 +1,42 @@
-# 🚀 Projeto de Otimização Semântica e Acessibilidade
+# 🚀 Projeto de Reestruturação Semântica e Acessibilidade Digital
 
-Este projeto consistiu na reestruturação completa do código HTML do artigo "Desafios da Formação de Engenheiros de Software". O objetivo foi transformar um código fonte genérico em uma página web moderna, acessível e semanticamente correta.
+Este projeto apresenta a reestruturação do código-fonte do artigo "Desafios da Formação de Engenheiros de Software". Partindo de uma base gerada automaticamente com falhas estruturais, aplicamos conceitos avançados de HTML5 e diretrizes de acessibilidade para transformar o site em uma plataforma semântica e inclusiva.
 
-## 🛠️ O que foi alterado (Site Antigo vs. Novo)
+## 🛠️ Modificações e Melhorias Realizadas
 
-### 1. Reestruturação Semântica e Redução de Divs
-O site original utilizava uma estrutura baseada quase inteiramente em `<div>`, o que não fornece significado ao navegador ou tecnologias assistivas.
-- **Antes:** Conteúdo solto dentro de divisões genéricas.
-- **Depois:** Implementação das tags de seção do HTML5:
-    - `<header>`: Para o topo fixo e branding.
-    - `<nav>`: Para os menus de navegação.
-    - `<main>`: Para delimitar onde começa e termina o conteúdo principal.
-    - `<article>`: Para o corpo do texto do artigo.
-    - `<section>`: Para cada tópico numerado (1.1 a 1.6), permitindo que o navegador entenda a divisão do assunto.
+Com base nos critérios de avaliação da disciplina, as seguintes ações foram executadas:
 
-### 2. Organização da Página Central
-- Organizamos o fluxo de leitura de forma mais limpa, garantindo que a hierarquia de títulos (`h1`, `h2`, `h3`) seguisse uma ordem lógica, facilitando o SEO e o entendimento de quem usa leitores de tela.
+### 1. Arquitetura de Informação (Tags de Seção)
+Substituímos o uso excessivo de `<div>` por uma estrutura semântica que define claramente as áreas do site:
+* **Header:** Organizado com `<nav>` para links e branding.
+* **Main:** Delimita exclusivamente o conteúdo principal do artigo.
+* **Footer:** Criado do zero com uma estrutura de grid, contendo informações institucionais, copyright e links de apoio.
+* **Article e Section:** O texto foi encapsulado em `<article>` e cada sub-tópico (1.1 a 1.6) recebeu uma `<section>` própria, facilitando o mapeamento por navegadores.
 
-### 3. Implementação de Rodapé (Footer) Institucional
-O site original carecia de um encerramento formal.
-- **Adição:** Criamos um `<footer>` completo, utilizando o modelo de grid, separando informações de copyright e links úteis de navegação.
+### 2. Acessibilidade (WCAG e Navegação)
+* **Skip Link (Link de Salto):** Implementamos um link oculto ("Pular para o conteúdo principal") que é o primeiro item a receber foco via teclado, permitindo saltar o menu principal.
+* **Textos Alternativos:** Todas as imagens e infográficos receberam o atributo `alt` descritivo, garantindo que usuários de leitores de tela compreendam as figuras e dados apresentados.
+* **Contraste e Labels:** Corrigimos a visibilidade do botão de "Modo Dark" (antes com texto transparente) e adicionamos `aria-label` para descrever funções de botões e links de imagem.
+* **Âncora de Retorno:** Adicionamos um link no rodapé que permite ao usuário retornar rapidamente ao topo da página principal.
 
-### 4. Melataria em Acessibilidade e Navegação
-- **Link de Retorno ao Topo:** Adicionamos um link funcional no rodapé que direciona o usuário imediatamente para o início do site (`#main-content`), melhorando a usabilidade em textos longos.
-- **Skip Link:** Implementamos o link "Pular para o conteúdo principal" para usuários que navegam via teclado.
-- **Contraste de Interface:** O botão de Modo Dark foi ajustado para que o texto nunca fique transparente, mantendo a visibilidade em qualquer tema.
+### 3. Hierarquia e SEO
+* **Padronização de Títulos:** Corrigimos a hierarquia de cabeçalhos. O site agora possui um único `<h1>` (título de maior importância), seguido por `<h2>` para capítulos e `<h3>` para subseções, sem pular níveis hierárquicos.
 
-## 🏁 Missões Concluídas
-- [x] **Redução drástica de divs inúteis.**
-- [x] **Aplicação de HTML5 Semântico puro.**
-- [x] **Criação de Footer robusto.**
-- [x] **Ajuste de acessibilidade nas imagens (Atributo Alt).**
-- [x] **Melhoria no fluxo de navegação interna (links de âncora).**
+### 4. Código Limpo e Semântico
+* O código foi higienizado, removendo scripts e estilos em linha redundantes herdados do site original.
+* Utilizamos a tag `<figure>` e `<figcaption>` para garantir que as legendas das imagens estejam semanticamente ligadas às fotos.
+* Citações foram marcadas com a tag `<blockquote>`, fornecendo o sentido correto de "bloco de citação" para o navegador.
+
+## ✅ Checklist de Qualidade Atendido
+- [x] Criação correta de Header, Main e Footer.
+- [x] Substituição de Divs por tags semânticas (HTML5).
+- [x] Adição de Alt em imagens e Labels de acessibilidade.
+- [x] Organização da hierarquia lógica de títulos (H1 -> H2 -> H3).
+- [x] Implementação de Skip Link para acessibilidade via teclado.
+- [x] Garantia de código limpo e semântica correta.
 
 ---
-**Desenvolvido por:** Renato Moreira
+**Curso:** Engenharia de Software  
+**Disciplina:** Desenvolvimento Web  
+**Instituição:** CEUB  
+**Professor(a):** Kadidja Valéria
