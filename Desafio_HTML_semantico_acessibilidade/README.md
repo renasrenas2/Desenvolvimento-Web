@@ -1,6 +1,6 @@
 # 🚀 Projeto de Otimização Semântica e Acessibilidade
 
-Este projeto consistiu na reestruturação completa do código HTML do artigo "Desafios da Formação de Engenheiros de Software". O objetivo foi transformar um código fonte genérico em uma página web moderna, acessível e semanticamente correta, seguindo as diretrizes da disciplina de Desenvolvimento Web (Profª Kadidja Valéria).
+Este projeto consistiu na reestruturação completa do código HTML do artigo "Desafios da Formação de Engenheiros de Software". O objetivo foi transformar um código fonte genérico em uma página web moderna, acessível e semanticamente correta.
 
 ## 🛠️ O que foi alterado (Site Antigo vs. Novo)
 
@@ -34,6 +34,4 @@ O site original carecia de um encerramento formal.
 - [x] **Melhoria no fluxo de navegação interna (links de âncora).**
 
 ---
-**Desenvolvido por:** [Seu Nome]  
-**Instituição:** CEUB | Engenharia de Software  
-**Professor(a):** Kadidja Valéria
+**Desenvolvido por:** Renato Moreira
