@@ -1,4 +1,4 @@
-# 🚀 Dsesafio: Reestruturação Semântica e Acessibilidade Digital
+# 🚀 Desafio: Reestruturação Semântica e Acessibilidade Digital
 
 Este projeto apresenta a reestruturação do código-fonte do artigo "Desafios da Formação de Engenheiros de Software". Partindo de uma base gerada automaticamente com falhas estruturais, aplicamos conceitos avançados de HTML5 e diretrizes de acessibilidade para transformar o site em uma plataforma semântica e inclusiva.
 
