@@ -1,6 +1,6 @@
 # 🚀 Desafio: HTML Semântico e Acessibilidade - Desenvolvimento Web
 
-Este repositório contém a atividade prática da disciplina de **Desenvolvimento Web**, onde o objetivo foi selecionar a estrutura de um site existente e realizar modificações para elevar seu nível de qualidade, seguindo os critérios de semântica e acessibilidade propostos pela **Profª Kadidja Valéria**.
+Este repositório contém a atividade prática da disciplina de **Desenvolvimento Web**, onde o objetivo foi selecionar a estrutura de um site existente e realizar modificações para elevar seu nível de qualidade, seguindo os critérios de semântica e acessibilidade.
 
 ## 🎯 Objetivo da Atividade
 Conforme as instruções do desafio, o objetivo foi assumir o papel de Desenvolvedor Web para corrigir e melhorar a estruturação de uma página, buscando alcançar o nível máximo de **Mestre da Semântica**.
