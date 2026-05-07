@@ -1,4 +1,4 @@
-# 🚀 Projeto de Reestruturação Semântica e Acessibilidade Digital
+# 🚀 Dsesafio: Reestruturação Semântica e Acessibilidade Digital
 
 Este projeto apresenta a reestruturação do código-fonte do artigo "Desafios da Formação de Engenheiros de Software". Partindo de uma base gerada automaticamente com falhas estruturais, aplicamos conceitos avançados de HTML5 e diretrizes de acessibilidade para transformar o site em uma plataforma semântica e inclusiva.
 
@@ -38,5 +38,4 @@ Substituímos o uso excessivo de `<div>` por uma estrutura semântica que define
 ---
 **Curso:** Engenharia de Software  
 **Disciplina:** Desenvolvimento Web  
-**Instituição:** CEUB  
-**Professor(a):** Kadidja Valéria
+**Desenvolvido por:** Renato Moreira Santos Faria
