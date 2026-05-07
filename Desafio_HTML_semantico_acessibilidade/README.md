@@ -37,7 +37,5 @@ Conforme as instruções do desafio, o objetivo foi assumir o papel de Desenvolv
 * **Semântica Correta:** Evolução do nível Iniciante para o nível Mestre através do uso correto das tags HTML5.
 
 ---
-**Curso:** Engenharia de Software  
-**Disciplina:** Desenvolvimento Web  
-**Instituição:** CEUB  
-**Professor(a):** Kadidja Valéria
+**Feito por:** Renato Moreira Santos Faria
+
