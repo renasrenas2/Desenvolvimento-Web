@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artigos Didáticos – Engenharia de Software Moderna</title>
+
+    <meta name="description" content="25 artigos didáticos sobre assuntos emergentes em Engenharia de Software, com 130 páginas e slides." />
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://engsoftmoderna.info/figs/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── Tokens ── */
+        :root {
+            --purple:       #5a2d82;
+            --purple-dark:  #3d1d5c;
+            --purple-light: #7b4aaa;
+            --gold:         #c9a84c;
+            --gold-light:   #e8cc7a;
+            --cream:        #faf8f4;
+            --ink:          #1a1220;
+            --ink-muted:    #4a3d58;
+            --surface:      #ffffff;
+            --border:       #e2d9f3;
+            --nav-h:        68px;
+            --radius:       8px;
+            --shadow:       0 4px 24px rgba(90,45,130,.12);
+        }
+        [data-theme="dark"] {
+            --cream:        #110d18;
+            --surface:      #1c1528;
+            --ink:          #f0eaf8;
+            --ink-muted:    #b8a8d0;
+            --border:       #2e2244;
+            --shadow:       0 4px 24px rgba(0,0,0,.4);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            background: var(--cream);
+            color: var(--ink);
+            transition: background .3s, color .3s;
+        }
+
+        /* ── Skip link ── */
+        .skip-link {
+            position: absolute; top: -100px; left: 0;
+            background: var(--purple); color: #fff;
+            padding: 10px 18px; z-index: 9999;
+            font-family: 'Syne', sans-serif;
+            border-radius: 0 0 var(--radius) 0;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ════════════════
+           TOPBAR
+        ════════════════ */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--purple-dark);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 16px rgba(0,0,0,.3);
+        }
+        .topbar-inner {
+            max-width: 960px; margin: 0 auto;
+            padding: 0 24px; height: var(--nav-h);
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 16px;
+        }
+        .nav-brand {
+            display: flex; align-items: center;
+            gap: 12px; text-decoration: none; flex-shrink: 0;
+        }
+        .nav-brand img {
+            height: 44px; width: auto;
+            border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,.4);
+        }
+        .nav-brand-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .nav-brand-title {
+            font-family: 'Syne', sans-serif; font-weight: 800;
+            font-size: .85rem; color: #fff; letter-spacing: .02em;
+        }
+        .nav-brand-sub {
+            font-size: .7rem; color: var(--gold-light);
+            letter-spacing: .06em; text-transform: uppercase;
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 2px; list-style: none;
+        }
+        .nav-links a {
+            display: block; padding: 6px 11px;
+            color: rgba(255,255,255,.82); text-decoration: none;
+            font-family: 'Syne', sans-serif; font-size: .75rem;
+            font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+            border-radius: 5px; transition: background .2s, color .2s;
+        }
+        .nav-links a:hover, .nav-links a:focus {
+            background: rgba(255,255,255,.12); color: var(--gold-light); outline: none;
+        }
+        #dark-mode-toggle {
+            background: transparent; border: 1.5px solid rgba(255,255,255,.3);
+            color: rgba(255,255,255,.85); padding: 5px 12px; border-radius: 20px;
+            font-family: 'Syne', sans-serif; font-size: .73rem; font-weight: 700;
+            letter-spacing: .04em; text-transform: uppercase;
+            cursor: pointer; transition: all .2s; flex-shrink: 0;
+        }
+        #dark-mode-toggle:hover { border-color: var(--gold); color: var(--gold-light); }
+        .hamburger {
+            display: none; background: none; border: none;
+            cursor: pointer; color: #fff; font-size: 1.6rem; line-height: 1; padding: 4px;
+        }
+        @media (max-width: 700px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none; flex-direction: column;
+                position: absolute; top: var(--nav-h); left: 0; right: 0;
+                background: var(--purple-dark);
+                padding: 12px 24px 20px;
+                border-bottom: 2px solid var(--gold); gap: 2px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 9px 0; font-size: .85rem; }
+            .nav-brand-text { display: none; }
+        }
+
+        /* ════════════════
+           HERO
+        ════════════════ */
+        .hero {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, var(--purple-light) 100%);
+            padding: 64px 24px 56px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(201,168,76,.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.06) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-eyebrow {
+            font-family: 'Syne', sans-serif; font-size: .75rem; font-weight: 700;
+            letter-spacing: .16em; text-transform: uppercase;
+            color: var(--gold-light); margin-bottom: 16px;
+            animation: fadeUp .6s ease both;
+        }
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800; color: #fff; line-height: 1.15;
+            max-width: 680px; margin: 0 auto 16px;
+            animation: fadeUp .7s .1s ease both;
+        }
+        .hero-subtitle {
+            font-size: 1rem; color: rgba(255,255,255,.75);
+            max-width: 520px; margin: 0 auto 32px;
+            animation: fadeUp .7s .2s ease both;
+        }
+        .hero-badges {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 10px; animation: fadeUp .7s .3s ease both;
+        }
+        .badge {
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(201,168,76,.4);
+            color: var(--gold-light); padding: 5px 16px; border-radius: 20px;
+            font-size: .8rem; font-family: 'Syne', sans-serif; font-weight: 700;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ════════════════
+           MAIN CONTENT
+        ════════════════ */
+        .page-wrap { max-width: 780px; margin: 0 auto; padding: 56px 24px 80px; }
+        section[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
+
+        h2 {
+            font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800;
+            color: var(--purple); margin: 2.8rem 0 1rem;
+            padding-bottom: .4rem; border-bottom: 2px solid var(--border);
+        }
+        [data-theme="dark"] h2 { color: var(--gold-light); }
+
+        p { margin-bottom: 1rem; }
+        a { color: var(--purple); }
+        [data-theme="dark"] a { color: var(--gold-light); }
+        a:hover { color: var(--gold); }
+
+        /* ── Chapter group ── */
+        .chapter-group { margin-bottom: 2rem; }
+
+        .chapter-group-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Syne', sans-serif; font-size: .72rem; font-weight: 800;
+            letter-spacing: .12em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: .8rem;
+        }
+        .chapter-group-label::after {
+            content: '';
+            flex: 1; height: 1px;
+            background: var(--border);
+            min-width: 40px;
+        }
+
+        /* ── Article cards ── */
+        .article-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+
+        .article-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--purple-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 12px 18px;
+            transition: box-shadow .2s, border-left-color .2s, transform .15s;
+        }
+        .article-card:hover {
+            box-shadow: var(--shadow);
+            border-left-color: var(--gold);
+            transform: translateX(3px);
+        }
+        .article-card a {
+            font-family: 'Syne', sans-serif;
+            font-size: .95rem; font-weight: 700;
+            color: var(--purple); text-decoration: none;
+            display: block;
+        }
+        [data-theme="dark"] .article-card a { color: var(--gold-light); }
+        .article-card a:hover { color: var(--gold); }
+
+        /* ── Slides grid ── */
+        .slides-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+
+        .slide-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            display: flex; align-items: center; gap: 14px;
+            transition: box-shadow .2s, border-color .2s;
+        }
+        .slide-item:hover { box-shadow: var(--shadow); border-color: var(--purple-light); }
+
+        .slide-icon {
+            background: var(--purple);
+            color: #fff; font-family: 'Syne', sans-serif;
+            font-weight: 800; font-size: .75rem;
+            padding: 6px 10px; border-radius: 6px;
+            flex-shrink: 0; letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+        .slide-item a {
+            font-family: 'Syne', sans-serif; font-size: .9rem; font-weight: 700;
+            color: var(--purple); text-decoration: none;
+        }
+        [data-theme="dark"] .slide-item a { color: var(--gold-light); }
+        .slide-item a:hover { color: var(--gold); }
+
+        /* ════════════════
+           FOOTER
+        ════════════════ */
+        footer {
+            background: var(--purple-dark); border-top: 3px solid var(--gold);
+            color: rgba(255,255,255,.75); padding: 3rem 24px 2rem;
+        }
+        .footer-inner {
+            max-width: 960px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;
+        }
+        .footer-col h3 {
+            font-family: 'Syne', sans-serif; font-size: .78rem; font-weight: 800;
+            letter-spacing: .12em; text-transform: uppercase;
+            color: var(--gold-light); margin-bottom: 1rem; border: none;
+        }
+        .footer-col p, .footer-col li {
+            font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.6);
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col ul li { margin-bottom: .4rem; }
+        .footer-col a { color: rgba(255,255,255,.6); text-decoration: none; }
+        .footer-col a:hover { color: var(--gold-light); }
+        .footer-divider {
+            border: none; border-top: 1px solid rgba(255,255,255,.1);
+            margin: 2rem auto; max-width: 960px;
+        }
+        .footer-bottom {
+            max-width: 960px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+            font-size: .78rem; color: rgba(255,255,255,.4);
+        }
+        .footer-credits { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .tag {
+            background: rgba(201,168,76,.2); border: 1px solid rgba(201,168,76,.4);
+            color: var(--gold-light); padding: 2px 10px; border-radius: 12px;
+            font-size: .72rem; font-weight: 700; font-family: 'Syne', sans-serif;
+            letter-spacing: .06em; text-transform: uppercase;
+        }
+        .github-link {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+            color: rgba(255,255,255,.7); padding: 6px 16px; border-radius: 20px;
+            font-size: .78rem; font-family: 'Syne', sans-serif; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .06em; text-decoration: none;
+            transition: all .2s;
+        }
+        .github-link:hover { background: rgba(201,168,76,.15); border-color: var(--gold); color: var(--gold-light); }
+        .github-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        @media (max-width: 640px) {
+            .footer-inner { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+    <!-- ══ TOPBAR ══ -->
+    <div class="topbar" role="banner">
+        <div class="topbar-inner">
+            <a href="index.html" class="nav-brand">
+                <img
+                    src="https://engsoftmoderna.info/figs/capa/capa-principal.png"
+                    alt="Capa do livro Engenharia de Software Moderna – voltar à página principal"
+                />
+                <div class="nav-brand-text">
+                    <span class="nav-brand-title">ES Moderna</span>
+                    <span class="nav-brand-sub">Marco Tulio Valente</span>
+                </div>
+            </a>
+
+            <button class="hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">☰</button>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-links" id="primary-nav" role="list">
+                    <li><a href="#artigos">Artigos</a></li>
+                    <li><a href="#slides">Slides</a></li>
+                    <li><a href="engsoftmoderna.html">Livro 1</a></li>
+                    <li><a href="manutencao.html">Livro 2</a></li>
+                    <li><a href="index.html">← Artigo</a></li>
+                </ul>
+            </nav>
+
+            <button id="dark-mode-toggle" type="button" aria-pressed="false">🌙 Dark</button>
+        </div>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <div class="hero" aria-label="Cabeçalho da página de artigos">
+        <p class="hero-eyebrow">Engenharia de Software Moderna · Complemento ao Livro</p>
+        <h1 class="hero-title">Artigos Didáticos</h1>
+        <p class="hero-subtitle">Assuntos emergentes e relevantes em Engenharia de Software, organizados por capítulo do livro.</p>
+        <div class="hero-badges">
+            <span class="badge">📄 25 Artigos</span>
+            <span class="badge">📖 130 Páginas</span>
+            <span class="badge">🎯 Com Exercícios</span>
+            <span class="badge">📊 Com Slides</span>
+        </div>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <main id="main-content" tabindex="-1">
+        <div class="page-wrap">
+
+            <section id="artigos" aria-labelledby="titulo-artigos">
+                <h2 id="titulo-artigos">Lista de Artigos</h2>
+                <p>Os artigos didáticos tratam de assuntos emergentes e relevantes em Engenharia de Software e servem de complemento ao conteúdo do livro. São 25 artigos, totalizando 130 páginas. Todos são acompanhados de exercícios e <a href="#slides">slides</a>.</p>
+                <p>Segue a lista de artigos, organizados segundo o capítulo e tema que abordam:</p>
+
+                <!-- Cap. 0 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 0 — Prefácio</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/desafios-engsoft.html" target="_blank" rel="noopener">
+                                Desafios da Formação de Engenheiros de Software
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 1 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 1 — Introdução</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/como-monetizar.html" target="_blank" rel="noopener">
+                                Como Monetizar Sistemas de Software?
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 2 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 2 — Processos</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/pix-banco-x.html" target="_blank" rel="noopener">
+                                Estudo de Caso: PIX no Banco X
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/squads.html" target="_blank" rel="noopener">
+                                Organizando Times Ágeis em Squads
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/shape-up.html" target="_blank" rel="noopener">
+                                Shape Up: Uma Possível Alternativa a Scrum?
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/cfd.html" target="_blank" rel="noopener">
+                                Diagramas de Fluxo Cumulativo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 3 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 3 — Requisitos</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/mvp.html" target="_blank" rel="noopener">
+                                O que é – e também o que não é – um MVP?
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/product-discovery.html" target="_blank" rel="noopener">
+                                Product Discovery: Uma Breve Introdução
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/design-thinking.html" target="_blank" rel="noopener">
+                                Design Thinking: Principais Conceitos e Atividades
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/jobs-to-be-done.html" target="_blank" rel="noopener">
+                                Jobs to be Done (JTBD) Aplicado a Produtos de Software
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 5 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 5 — Princípios de Projeto</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/outros-principios.html" target="_blank" rel="noopener">
+                                Mais Alguns Princípios de Projeto
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/deep-modules.html" target="_blank" rel="noopener">
+                                Módulos devem ser Profundos!
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/ddd.html" target="_blank" rel="noopener">
+                                Domain-Driven Design (DDD): Um Resumo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 6 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 6 — Padrões de Projeto</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/composite.html" target="_blank" rel="noopener">
+                                Criando Objetos Compostos com o Padrão Composite
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/injecao-dependencia.html" target="_blank" rel="noopener">
+                                O que é Injeção de Dependência?
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 7 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 7 — Arquitetura</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/arquitetura-hexagonal.html" target="_blank" rel="noopener">
+                                O que é uma Arquitetura Hexagonal?
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/arquitetura-limpa.html" target="_blank" rel="noopener">
+                                Construindo Sistemas com uma Arquitetura Limpa
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/serverless.html" target="_blank" rel="noopener">
+                                O que é uma Arquitetura Serverless?
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/sagas.html" target="_blank" rel="noopener">
+                                Consistência de Dados em Microsserviços usando-se Sagas
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 8 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 8 — Testes</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/exemplos-teste.html" target="_blank" rel="noopener">
+                                Alguns Exemplos Reais e Interessantes de Testes
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/testes-mutacao.html" target="_blank" rel="noopener">
+                                Testes de Mutação: Uma Visão Prática
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 9 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 9 — Refactoring</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/broken-windows.html" target="_blank" rel="noopener">
+                                Duas Recomendações para Manutenção de Software
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Cap. 10 -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Cap. 10 — DevOps</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/gitflow.html" target="_blank" rel="noopener">
+                                Gerenciando Branches com Git-flow, GitHubFlow e TBD
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Outros Temas -->
+                <div class="chapter-group">
+                    <p class="chapter-group-label">Outros Temas</p>
+                    <ul class="article-list" role="list">
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/revisao-codigo.html" target="_blank" rel="noopener">
+                                Revisão de Código: Uma Breve Introdução
+                            </a>
+                        </li>
+                        <li class="article-card">
+                            <a href="https://engsoftmoderna.info/artigos/micro-saas.html" target="_blank" rel="noopener">
+                                Microempresas de Software como Serviço
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Slides -->
+            <section id="slides" aria-labelledby="titulo-slides">
+                <h2 id="titulo-slides">Slides</h2>
+                <ul class="slides-list" role="list">
+                    <li class="slide-item">
+                        <span class="slide-icon">PPT</span>
+                        <a href="https://docs.google.com/presentation/d/109LtBohQA-o7ntJeJVjHkfYQNMthcdwJ2me5_hpICkk/edit?usp=sharing" target="_blank" rel="noopener">
+                            Slides dos artigos sobre Processos e Requisitos
+                        </a>
+                    </li>
+                    <li class="slide-item">
+                        <span class="slide-icon">PPT</span>
+                        <a href="https://docs.google.com/presentation/d/1vqvKQ4RhSx7kIdqYHhAoM8dsH4qjX4sO0eG8jBpZvOI/edit?usp=sharing" target="_blank" rel="noopener">
+                            Slides dos artigos sobre Projeto e Arquitetura
+                        </a>
+                    </li>
+                    <li class="slide-item">
+                        <span class="slide-icon">PPT</span>
+                        <a href="https://docs.google.com/presentation/d/175gaQBSFyZPf6T96OkNyiq6pM3HGHiy1-lG5XTWXHqU/edit?usp=sharing" target="_blank" rel="noopener">
+                            Slides sobre os demais artigos
+                        </a>
+                    </li>
+                    <li class="slide-item">
+                        <span class="slide-icon">PPT</span>
+                        <a href="https://docs.google.com/presentation/d/1w3W968zuq-xEeR39M7c4bqTElB19UwhBKw9ut3hznVQ/edit?usp=sharing" target="_blank" rel="noopener">
+                            Slides sobre estudos de caso
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>Sobre os Artigos</h3>
+                <p>25 artigos didáticos sobre assuntos emergentes em Engenharia de Software, escritos por <strong style="color:#fff;">Marco Tulio Valente</strong>.</p>
+                <p style="margin-top:.8rem;">Todos os direitos reservados.<br>Versão apenas para uso pessoal.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Navegação Rápida</h3>
+                <ul>
+                    <li><a href="#artigos">Lista de Artigos</a></li>
+                    <li><a href="#slides">Slides</a></li>
+                    <li><a href="engsoftmoderna.html">Livro 1 — ES Moderna</a></li>
+                    <li><a href="manutencao.html">Livro 2 — Manutenção</a></li>
+                    <li><a href="index.html">← Voltar ao Artigo Principal</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="https://forms.gle/YhKNRZjkHu7ASc7M8" target="_blank" rel="noopener">Reportar Erro / Feedback</a></li>
+                    <li><a href="https://www.linkedin.com/in/mtov/" target="_blank" rel="noopener">LinkedIn do Autor</a></li>
+                    <li><a href="https://twitter.com/engsoftmoderna" target="_blank" rel="noopener">X (Twitter)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="footer-credits">
+                <span class="tag">Reestruturação</span>
+                <span>Site reestruturado por <strong style="color:rgba(255,255,255,.8);">Renato Moreira Santos Faria</strong></span>
+            </div>
+            <a
+                href="https://github.com/renasrenas2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-link"
+                aria-label="Perfil do GitHub de Renato Moreira Santos Faria (abre em nova aba)"
+            >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                github.com/renasrenas2
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('dark-mode-toggle');
+        btn.addEventListener('click', () => {
+            const isPressed = btn.getAttribute('aria-pressed') === 'true';
+            const newTheme = isPressed ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            btn.setAttribute('aria-pressed', String(!isPressed));
+            btn.textContent = newTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks  = document.getElementById('primary-nav');
+        hamburger.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', String(open));
+            hamburger.textContent = open ? '✕' : '☰';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.textContent = '☰';
+            });
+        });
+    </script>
+</body>
+</html>
