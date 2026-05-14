@@ -152,6 +152,102 @@ Todas as páginas compartilham: navbar sticky responsiva, hero banner, dark mode
 
 ---
 
+## 📅 Aula 13 — JavaScript e Interatividade
+### Atividade correspondente ao dia 14/05
+
+Evolução da página responsiva (07/05) para torná-la **interativa**, adicionando o "sistema nervoso" da aplicação: JavaScript manipulando o DOM e respondendo a eventos do usuário em tempo real, sem recarregar a página.
+
+### 🛠️ O que foi implementado
+
+#### 1. Arquivo `script.js` separado — vinculado no final do `<body>`
+```html
+<!-- Etapa 2 da atividade: vínculo correto no final do body -->
+<script src="script.js"></script>
+```
+Separar o JS do HTML mantém o código organizado e garante que o DOM já esteja carregado quando o script executar.
+
+#### 2. Seleção de elementos com `getElementById` (DOM Selection)
+```javascript
+const btnClique  = document.getElementById('btnClique');
+const mensagem   = document.getElementById('mensagem');
+const campoTexto = document.getElementById('campoTexto');
+```
+
+#### 3. Evento obrigatório: `click`
+```javascript
+btnClique.addEventListener('click', () => {
+    mensagem.textContent = '✅ Você clicou no botão!';
+    mensagem.classList.add('js-highlight');
+});
+```
+
+#### 4. Evento obrigatório: `mouseover` + `mouseleave`
+```javascript
+btnClique.addEventListener('mouseover', () => {
+    mensagem.textContent = '🖱️ Mouse sobre o botão — mouseover disparado!';
+    mensagem.classList.add('js-hover');
+});
+```
+
+#### 5. Evento obrigatório: `keyup` — eco em tempo real
+```javascript
+campoTexto.addEventListener('keyup', () => {
+    eco.textContent = `💬 Você digitou: "${campoTexto.value}"`;
+});
+```
+
+#### 6. Evento extra: `dblclick` — estilo dourado temporário
+```javascript
+btnClique.addEventListener('dblclick', () => {
+    mensagem.classList.add('js-gold');
+    setTimeout(() => mensagem.classList.remove('js-gold'), 1800);
+});
+```
+
+#### 7. Evento extra: `keydown` — contador de caracteres
+```javascript
+campoTexto.addEventListener('keydown', () => {
+    contador.textContent = `${campoTexto.value.length} caractere(s)`;
+});
+```
+
+#### 8. Extra: esconder/mostrar elemento via DOM
+```javascript
+btnToggle.addEventListener('click', () => {
+    const visivel = painelJs.style.display !== 'none';
+    painelJs.style.display = visivel ? 'none' : 'block';
+});
+```
+
+### 📂 Novo arquivo no projeto
+```
+pasta-do-projeto/
+├── index.html    ← seção #interatividade adicionada + <script src="script.js">
+├── script.js     ← arquivo JS separado (novo)
+├── engsoftmoderna.html
+├── manutencao.html
+└── artigos.html
+```
+
+### ✅ Checklist — Aula 13
+
+- [x] Reutilização da página responsiva criada em 07/05
+- [x] Elementos HTML adicionados: botão (`#btnClique`), reset (`#btnReset`), campo de texto (`#campoTexto`)
+- [x] Arquivo `script.js` criado e vinculado corretamente no final do `<body>`
+- [x] DOM manipulado com `getElementById` e `classList`
+- [x] Evento `click` — altera texto e estilo do painel de feedback
+- [x] Evento `mouseover` — detecta passagem do mouse sobre o botão
+- [x] Evento `keyup` — eco em tempo real do texto digitado
+- [x] Evento extra `dblclick` — aplica estilo dourado temporário
+- [x] Evento extra `keydown` — contador de caracteres em tempo real
+- [x] Esconder/mostrar painel via `style.display` e toggle de botão
+- [x] `aria-live` no painel de feedback para acessibilidade
+- [x] Testes de fluxo realizados no navegador (F12 → Console)
+- [x] Commit e push para o repositório no GitHub
+
+
+---
+
 ## 🎨 Identidade Visual
 
 O projeto adota uma identidade visual consistente em todas as páginas:
