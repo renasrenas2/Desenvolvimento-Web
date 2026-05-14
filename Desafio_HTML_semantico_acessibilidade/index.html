@@ -4,133 +4,1256 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desafios da Formação de Engenheiros de Software – ES Moderna</title>
-    <link rel="stylesheet" href="https://engsoftmoderna.info/helper/pico.min.css"/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://engsoftmoderna.info/figs/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <style>
-        :root { --primary: #5a2d82; }
-        .skip-link { position: absolute; top: -100px; left: 0; background: var(--primary); color: white; padding: 10px; z-index: 1000; }
+        /* ── Tokens ── */
+        :root {
+            --purple:       #5a2d82;
+            --purple-dark:  #3d1d5c;
+            --purple-light: #7b4aaa;
+            --gold:         #c9a84c;
+            --gold-light:   #e8cc7a;
+            --cream:        #faf8f4;
+            --ink:          #1a1220;
+            --ink-muted:    #4a3d58;
+            --surface:      #ffffff;
+            --border:       #e2d9f3;
+            --nav-h:        68px;
+            --radius:       8px;
+            --shadow:       0 4px 24px rgba(90,45,130,.12);
+        }
+
+        [data-theme="dark"] {
+            --cream:        #110d18;
+            --surface:      #1c1528;
+            --ink:          #f0eaf8;
+            --ink-muted:    #b8a8d0;
+            --border:       #2e2244;
+            --shadow:       0 4px 24px rgba(0,0,0,.4);
+        }
+
+        /* ── Reset & base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        /*
+         * ══════════════════════════════════════════
+         *  MOBILE-FIRST (Unidade 3 – Aula 07/05)
+         *  Base: mobile (1 coluna, fonte 14px)
+         *  Breakpoint tablet  → @media (min-width: 600px)
+         *  Breakpoint desktop → @media (min-width: 1024px)
+         * ══════════════════════════════════════════
+         */
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            /* CSS base mobile: fonte menor, 1 coluna */
+            font-size: 14px;
+            line-height: 1.8;
+            background: var(--cream);
+            color: var(--ink);
+            transition: background .3s, color .3s;
+            width: 100%;
+            display: block;
+        }
+
+        /* Tablet (≥600px): fonte cresce para 16px */
+        @media screen and (min-width: 600px) {
+            body { font-size: 16px; }
+        }
+
+        /* Desktop (≥1024px): fonte cresce para 18px */
+        @media screen and (min-width: 1024px) {
+            body { font-size: 18px; }
+        }
+
+        /*
+         * Grid de conteúdo responsivo (Flexbox ou Grid)
+         * Mobile:  1 coluna
+         * Tablet:  2 colunas
+         * Desktop: 3 colunas
+         */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 1.5rem 0;
+        }
+        @media screen and (min-width: 600px) {
+            .content-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media screen and (min-width: 1024px) {
+            .content-grid { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        /* Imagens responsivas */
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Skip link ── */
+        .skip-link {
+            position: absolute; top: -100px; left: 0;
+            background: var(--purple); color: #fff;
+            padding: 10px 18px; z-index: 9999;
+            font-family: 'Syne', sans-serif;
+            border-radius: 0 0 var(--radius) 0;
+        }
         .skip-link:focus { top: 0; }
-        #dark-mode-toggle { color: var(--primary); border: 1px solid var(--primary); background: transparent; cursor: pointer; }
-        header img.capa-livro { max-width: 180px; margin-top: 20px; transition: transform 0.3s; }
-        header img.capa-livro:hover { transform: scale(1.05); }
-        footer { background-color: var(--card-background-color); padding: 2rem 0; margin-top: 4rem; border-top: 2px solid var(--primary); }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
-        blockquote { font-style: italic; border-left: 5px solid var(--primary); }
+
+        /* ════════════════
+           TOPBAR / NAVBAR
+        ════════════════ */
+        .topbar {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--purple-dark);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 16px rgba(0,0,0,.3);
+        }
+        .topbar-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: var(--nav-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        /* Brand */
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        .nav-brand img {
+            height: 44px;
+            width: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.4);
+        }
+        .nav-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .nav-brand-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: .85rem;
+            color: #fff;
+            letter-spacing: .02em;
+        }
+        .nav-brand-sub {
+            font-size: .7rem;
+            color: var(--gold-light);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        /* Nav links */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+        }
+        .nav-links a {
+            display: block;
+            padding: 6px 11px;
+            color: rgba(255,255,255,.82);
+            text-decoration: none;
+            font-family: 'Syne', sans-serif;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: background .2s, color .2s;
+        }
+        .nav-links a:hover,
+        .nav-links a:focus {
+            background: rgba(255,255,255,.12);
+            color: var(--gold-light);
+            outline: none;
+        }
+
+        /* Dark toggle */
+        #dark-mode-toggle {
+            background: transparent;
+            border: 1.5px solid rgba(255,255,255,.3);
+            color: rgba(255,255,255,.85);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: 'Syne', sans-serif;
+            font-size: .73rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .2s;
+            flex-shrink: 0;
+        }
+        #dark-mode-toggle:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.6rem;
+            line-height: 1;
+            padding: 4px;
+        }
+
+        @media (max-width: 700px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--nav-h);
+                left: 0; right: 0;
+                background: var(--purple-dark);
+                padding: 12px 24px 20px;
+                border-bottom: 2px solid var(--gold);
+                gap: 2px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { padding: 9px 0; font-size: .85rem; }
+            .nav-brand-text { display: none; }
+        }
+
+        /* ════════════
+           HERO BANNER
+        ════════════ */
+        .hero {
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, var(--purple-light) 100%);
+            padding: 64px 24px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(201,168,76,.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.06) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .hero-eyebrow {
+            font-family: 'Syne', sans-serif;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+            animation: fadeUp .6s ease both;
+        }
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            max-width: 680px;
+            margin: 0 auto 16px;
+            animation: fadeUp .7s .1s ease both;
+        }
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,.75);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            animation: fadeUp .7s .2s ease both;
+        }
+        .hero-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(201,168,76,.4);
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: .82rem;
+            color: var(--gold-light);
+            animation: fadeUp .7s .3s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ════════════
+           NOTICE BAR
+        ════════════ */
+        .notice-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 24px;
+            text-align: center;
+            font-size: .85rem;
+            color: var(--ink-muted);
+            transition: background .3s;
+        }
+        .notice-bar a { color: var(--purple); font-weight: 600; }
+        [data-theme="dark"] .notice-bar a { color: var(--gold-light); }
+        .notice-bar a:hover { color: var(--gold); }
+
+        /* ════════════
+           MAIN / ARTICLE
+        ════════════ */
+        .page-wrap {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 56px 24px 80px;
+        }
+
+        section[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--purple);
+            margin: 2.8rem 0 .8rem;
+            padding-bottom: .4rem;
+            border-bottom: 2px solid var(--border);
+        }
+        [data-theme="dark"] h2 { color: var(--gold-light); }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--purple-light);
+            margin: 2rem 0 .5rem;
+        }
+        [data-theme="dark"] h3 { color: #c9a0e8; }
+
+        p { margin-bottom: 1.1rem; }
+
+        blockquote {
+            border-left: 4px solid var(--gold);
+            background: transparent;
+            margin: 1.6rem 0;
+            padding: 1rem 1.4rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            color: var(--ink-muted);
+        }
+        blockquote p {
+            color: var(--ink-muted);
+        }
+        blockquote footer {
+            font-style: normal;
+            font-size: .85rem;
+            margin-top: .5rem;
+            color: var(--ink-muted);
+            background: transparent;
+        }
+
+        ul, ol { padding-left: 1.4rem; margin-bottom: 1.1rem; }
+        li { margin-bottom: .4rem; }
+
+        figure { margin: 2rem 0; text-align: center; }
+        figure img {
+            max-width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        figcaption {
+            margin-top: .6rem;
+            font-size: .82rem;
+            color: var(--ink-muted);
+            font-style: italic;
+        }
+
+        a { color: var(--purple); }
+        [data-theme="dark"] a { color: var(--gold-light); }
+        a:hover { color: var(--gold); }
+
+        hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+        /* ════════════
+           FOOTER
+        ════════════ */
+        footer {
+            background: var(--purple-dark);
+            border-top: 3px solid var(--gold);
+            color: rgba(255,255,255,.75);
+            padding: 3rem 24px 2rem;
+        }
+        .footer-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-col h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            border: none;
+        }
+        .footer-col p, .footer-col li {
+            font-size: .85rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,.6);
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col ul li { margin-bottom: .4rem; }
+        .footer-col a { color: rgba(255,255,255,.6); text-decoration: none; }
+        .footer-col a:hover { color: var(--gold-light); }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,.1);
+            margin: 2rem auto;
+            max-width: 960px;
+        }
+        .footer-bottom {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: .78rem;
+            color: rgba(255,255,255,.4);
+        }
+        .footer-credits {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: rgba(201,168,76,.2);
+            border: 1px solid rgba(201,168,76,.4);
+            color: var(--gold-light);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: .72rem;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.2);
+            color: rgba(255,255,255,.7);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: .78rem;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            text-decoration: none;
+            transition: all .2s;
+        }
+        .github-link:hover {
+            background: rgba(201,168,76,.15);
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+        .github-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        @media (max-width: 640px) {
+            .footer-inner { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+        }
+
+        /* ════════════════
+           SEÇÃO JS INTERATIVA (Aula 13)
+        ════════════════ */
+        .js-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin: 2.5rem 0;
+        }
+        .js-section h2 { border-bottom-color: var(--gold); }
+
+        .js-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(201,168,76,.15);
+            border: 1px solid rgba(201,168,76,.4);
+            color: var(--gold);
+            font-family: 'Syne', sans-serif;
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .js-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1.2rem 0;
+        }
+
+        .js-btn {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+            letter-spacing: .04em;
+            padding: 8px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background .2s, transform .15s, box-shadow .2s;
+        }
+        .js-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+        .js-btn:active { transform: translateY(0); }
+
+        .js-btn-primary { background: var(--purple); color: #fff; }
+        .js-btn-primary:hover { background: var(--purple-light); }
+
+        .js-btn-secondary { background: transparent; color: var(--purple); border: 1.5px solid var(--purple); }
+        [data-theme="dark"] .js-btn-secondary { color: var(--gold-light); border-color: var(--gold-light); }
+        .js-btn-secondary:hover { background: var(--purple); color: #fff; }
+
+        .js-btn-gold { background: var(--gold); color: var(--purple-dark); }
+        .js-btn-gold:hover { background: var(--gold-light); }
+
+        .js-feedback {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--purple);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 14px 18px;
+            margin: 1rem 0;
+            font-size: .95rem;
+            color: var(--ink-muted);
+            min-height: 52px;
+            transition: border-color .3s, background .3s;
+        }
+        .js-feedback.js-highlight {
+            border-left-color: var(--purple-light);
+            background: rgba(90,45,130,.06);
+            color: var(--purple);
+            font-weight: 600;
+        }
+        .js-feedback.js-hover {
+            border-left-color: var(--gold);
+            background: rgba(201,168,76,.06);
+            color: var(--ink-muted);
+        }
+        .js-feedback.js-gold {
+            border-left-color: var(--gold);
+            background: rgba(201,168,76,.12);
+            color: var(--purple-dark);
+            font-weight: 700;
+        }
+        [data-theme="dark"] .js-feedback { background: var(--surface); }
+        [data-theme="dark"] .js-feedback.js-highlight { background: rgba(123,74,170,.15); color: var(--gold-light); }
+
+        .js-input-wrap { margin: 1.2rem 0; }
+        .js-input-wrap label {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            margin-bottom: 6px;
+        }
+        .js-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+            color: var(--ink);
+            font-family: 'Source Serif 4', serif;
+            font-size: .95rem;
+            transition: border-color .2s;
+        }
+        .js-input:focus { outline: none; border-color: var(--purple); }
+        [data-theme="dark"] .js-input { background: var(--cream); border-color: var(--border); }
+
+        .js-eco {
+            font-size: .88rem;
+            color: var(--purple-light);
+            margin-top: 6px;
+            min-height: 20px;
+            font-style: italic;
+        }
+        [data-theme="dark"] .js-eco { color: var(--gold-light); }
+
+        .js-counter {
+            font-size: .75rem;
+            color: var(--ink-muted);
+            text-align: right;
+            margin-top: 2px;
+        }
+
+        .js-event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 1rem 0 0;
+        }
+        .js-tag {
+            font-family: 'Syne', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .06em;
+            padding: 3px 10px;
+            border-radius: 10px;
+        }
+        .js-tag-required { background: rgba(90,45,130,.1); color: var(--purple); border: 1px solid rgba(90,45,130,.2); }
+        .js-tag-extra { background: rgba(201,168,76,.1); color: var(--gold); border: 1px solid rgba(201,168,76,.3); }
+        [data-theme="dark"] .js-tag-required { background: rgba(201,160,232,.1); color: #c9a0e8; }
+
+
+        /* ════════════════════════════════════════════
+           DESAFIOS EXTRAS — Aula 13
+        ════════════════════════════════════════════ */
+
+        /* Badge de nível */
+        .nivel-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Syne', sans-serif;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 12px;
+            border-radius: 12px;
+            margin-bottom: .8rem;
+        }
+        .nivel-facil    { background: rgba(16,185,129,.12); color: #059669; border: 1px solid rgba(16,185,129,.3); }
+        .nivel-medio    { background: rgba(245,158,11,.12); color: #b45309; border: 1px solid rgba(245,158,11,.3); }
+        .nivel-avancado { background: rgba(239,68,68,.12);  color: #dc2626; border: 1px solid rgba(239,68,68,.3); }
+        [data-theme="dark"] .nivel-facil    { color: #34d399; }
+        [data-theme="dark"] .nivel-medio    { color: #fbbf24; }
+        [data-theme="dark"] .nivel-avancado { color: #f87171; }
+
+        /* Desafio card wrapper */
+        .desafio-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.4rem 1.6rem;
+            margin-bottom: 1.4rem;
+        }
+        .desafio-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: .6rem;
+        }
+        [data-theme="dark"] .desafio-card h3 { color: var(--gold-light); }
+
+        /* ── FÁCIL: temas de fundo ── */
+        /* Aplicados ao body via classList */
+        body.tema-roxo   { --cream: #f3eeff; --border: #d8c4f8; }
+        body.tema-verde  { --cream: #edfaf3; --border: #a7f3d0; }
+        body.tema-laranja{ --cream: #fff7ed; --border: #fed7aa; }
+        body.tema-azul   { --cream: #eff6ff; --border: #bfdbfe; }
+        [data-theme="dark"] body.tema-roxo    { --cream: #1a0d2e; }
+        [data-theme="dark"] body.tema-verde   { --cream: #052e16; }
+        [data-theme="dark"] body.tema-laranja { --cream: #1c0a00; }
+        [data-theme="dark"] body.tema-azul    { --cream: #0c1a2e; }
+
+        /* ── MÉDIO: contador ── */
+        .contador-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .contador-display {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--purple);
+            min-width: 64px;
+            text-align: center;
+            transition: color .3s, transform .15s;
+        }
+        .contador-display.contador-quente { color: var(--gold); }
+        .contador-display.contador-max    { color: #dc2626; transform: scale(1.08); }
+        [data-theme="dark"] .contador-display { color: var(--gold-light); }
+
+        /* ── MÉDIO: toggle de estilo ── */
+        .card-estilo {
+            background: var(--cream);
+            border: 2px solid var(--purple);
+            border-radius: var(--radius);
+            padding: 1rem 1.2rem;
+            margin: 1rem 0;
+            font-family: 'Syne', sans-serif;
+            font-size: .9rem;
+            font-weight: 700;
+            color: var(--purple);
+            text-align: center;
+            transition: all .35s ease;
+        }
+        .card-estilo.estilo-alternativo {
+            background: var(--purple-dark);
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+        [data-theme="dark"] .card-estilo { background: var(--surface); }
+
+        /* ── AVANÇADO: lista dinâmica ── */
+        .lista-input-row {
+            display: flex;
+            gap: 8px;
+            margin: 1rem 0;
+        }
+        .lista-input-row .js-input { flex: 1; }
+
+        #listaItens {
+            list-style: none;
+            padding: 0;
+            margin: .6rem 0;
+        }
+        .lista-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--purple);
+            border-radius: 0 var(--radius) var(--radius) 0;
+            padding: 10px 14px;
+            margin-bottom: 6px;
+            animation: slideIn .25s ease;
+            transition: opacity .28s, transform .28s;
+        }
+        .lista-item.item-saindo {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-12px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        .lista-item span {
+            font-size: .95rem;
+            color: var(--ink);
+            flex: 1;
+        }
+        .btn-remover-item {
+            background: none;
+            border: none;
+            color: var(--ink-muted);
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            line-height: 1;
+            transition: background .2s, color .2s;
+            flex-shrink: 0;
+        }
+        .btn-remover-item:hover { background: #fee2e2; color: #dc2626; }
+
+        .aviso-vazio {
+            font-size: .85rem;
+            color: var(--ink-muted);
+            font-style: italic;
+            text-align: center;
+            padding: .8rem;
+        }
+
     </style>
 </head>
 <body>
 
     <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
-    <header class="container">
-        <nav aria-label="Navegação Principal">
-            <ul>
-                <li>
-                    <a href="https://engsoftmoderna.info" aria-label="Página Inicial do Livro">
-                        <img src="https://engsoftmoderna.info/figs/capa/capa-principal.png" alt="Capa do livro Engenharia de Software Moderna" class="capa-livro">
-                    </a>
-                </li>
-            </ul>
-            <ul>
-                <li><a href="https://engsoftmoderna.info">Página Principal</a></li>
-                <li><button id="dark-mode-toggle">Modo Dark</button></li>
-            </ul>
-        </nav>
-        <div class="banner-livro" style="padding: 10px; background: var(--code-background-color); border-radius: 5px; margin-top: 10px;">
-            <p>Veja também nosso novo livro: <a href="https://manutencaosoftware.org/">Fundamentos de Manutenção de Software</a></p>
-        </div>
-    </header>
+    <!-- ══ TOPBAR ══ -->
+    <div class="topbar" role="banner">
+        <div class="topbar-inner">
 
-    <main class="container" id="main-content" tabindex="-1">
-        <article>
-            <header>
-                <h1>1. Desafios da Formação de Engenheiros de Software</h1>
-                <p>Por <strong>Marco Tulio Valente</strong></p>
-            </header>
+            <a href="engsoftmoderna.html" class="nav-brand">
+                <img
+                    src="https://engsoftmoderna.info/figs/capa/capa-principal.png"
+                    alt="Capa do livro Engenharia de Software Moderna – ir para a página inicial"
+                />
+                <div class="nav-brand-text">
+                    <span class="nav-brand-title">ES Moderna</span>
+                    <span class="nav-brand-sub">Marco Tulio Valente</span>
+                </div>
+            </a>
 
-            <section id="introducao">
-                <h2>1.1 Introdução</h2>
-                <p>Em 2019, ministrei pela primeira vez um curso de Engenharia de Software para alunos de graduação. Desde então, tenho estudado, trabalhado e refletido sobre questões ligadas à formação qualificada de Engenheiros de Software no Brasil. Assim, neste artigo, vou compartilhar minha visão sobre os desafios envolvidos nessa tarefa.</p>
-            </section>
+            <button class="hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">☰</button>
 
-            <section id="relevancia">
-                <h2>1.2 Relevância</h2>
-                <p>Primeiro, para delimitar o contexto deste artigo, acho importante começar lembrando que Engenharia de Software é cada vez mais essencial na formação de alunos de Ciência da Computação, Sistemas de Informação, Engenharia de Computação, etc.</p>
-                <figure>
-                    <img src="https://engsoftmoderna.info/artigos/figs/desafios-engsoft.png" alt="Gráfico de proporção: Grandes empresas possuem de 10 a 20 vezes mais engenheiros de software do que outras áreas técnicas.">
-                    <figcaption>Proporção de Engenheiros de Software versus Cientistas da Computação.</figcaption>
-                </figure>
-                <h3>Contexto Brasileiro</h3>
-                <p>Temos no Brasil capacidade e vocação para um mercado global, mas há um descasamento paradoxal entre a oferta e a demanda de profissionais de TI.</p>
-            </section>
-
-            <section id="eixos">
-                <h2>1.3 Eixos de Formação</h2>
-                <p>A formação qualificada requer um conjunto de esforços em dois eixos:</p>
-                <ul>
-                    <li><strong>Eixo Central:</strong> Desafios de ordem conceitual e prática.</li>
-                    <li><strong>Eixo Transversal:</strong> Habilidades comportamentais (soft skills) e visão de negócios.</li>
+            <nav aria-label="Navegação principal">
+                <ul class="nav-links" id="primary-nav" role="list">
+                    <li><a href="#introducao">Introdução</a></li>
+                    <li><a href="#relevancia">Relevância</a></li>
+                    <li><a href="#eixos">Eixos</a></li>
+                    <li><a href="#eixo-central">Central</a></li>
+                    <li><a href="#eixo-transversal">Transversal</a></li>
+                    <li><a href="#conclusao">Conclusão</a></li>
+                    <li><a href="#interatividade">JS</a></li>
+                    <li><a href="#desafios">Desafios</a></li>
                 </ul>
-                <figure>
-                    <img src="https://engsoftmoderna.info/artigos/figs/eixos-formacao-es.jpg" alt="Infográfico detalhando os eixos Central e Transversal.">
-                </figure>
-            </section>
+            </nav>
 
-            <section id="eixo-central">
-                <h2>1.4 Eixo Central de Formação</h2>
-                <h3>Formação Conceitual</h3>
-                <p>Envolve transmitir conceitos, práticas e princípios modernos de processos, projeto, arquitetura, testes e manutenção. O objetivo é maximizar o valor de cada página do aprendizado.</p>
-                <blockquote>"Eu não tive tempo de escrever uma carta curta, então acabei escrevendo uma carta longa..." — Mark Twain</blockquote>
-                
-                <h3>Formação Prática</h3>
-                <p>De nada adianta a teoria sem a prática. Linus Torvalds já dizia: <em>"Falar é fácil, me mostre o código"</em>. Na graduação da UFMG, focamos em trabalhos em equipe que simulam sistemas reais com métodos ágeis.</p>
-            </section>
+            <button id="dark-mode-toggle" type="button" aria-pressed="false">🌙 Dark</button>
+        </div>
+    </div>
 
-            <section id="eixo-transversal">
-                <h2>1.5 Eixo Transversal de Formação</h2>
-                <h3>Formação Comportamental</h3>
-                <p>O engenheiro moderno deve saber trabalhar em equipe, liderar, comunicar-se e ouvir. Soft skills são os mais demandados hoje no Stack Overflow Jobs.</p>
-                <figure>
-                    <img src="https://engsoftmoderna.info/artigos/figs/soft-skills.jpg" alt="Lista de soft skills: Comunicação, Trabalho em Equipe, Liderança e Adaptabilidade.">
-                </figure>
-                <h3>Formação em Negócios</h3>
-                <p>Não basta escrever código; é preciso entender o valor gerado para o negócio. O desenvolvedor deve ser capaz de propor melhorias que ampliem a base de clientes ou reduzam custos.</p>
-            </section>
+    <!-- ══ HERO ══ -->
+    <div class="hero" aria-label="Cabeçalho do artigo">
+        <p class="hero-eyebrow">Artigo Acadêmico · Engenharia de Software</p>
+        <h1 class="hero-title">Desafios da Formação de Engenheiros de Software</h1>
+        <p class="hero-subtitle">Uma reflexão sobre os eixos conceitual, prático, comportamental e de negócios na formação de profissionais de software no Brasil.</p>
+        <div class="hero-meta">
+            <span aria-hidden="true">✍️</span>
+            <span>Marco Tulio Valente · UFMG</span>
+        </div>
+    </div>
 
-            <section id="conclusao">
-                <h2>1.6 Conclusão</h2>
-                <p>Dois pré-requisitos são fundamentais: o aluno deve <strong>gostar</strong> de programar e <strong>saber</strong> programar (algoritmos e estruturas de dados). Engenharia de Software é o motor da transformação digital.</p>
-            </section>
-        </article>
+    <!-- ══ NOTICE BAR ══ -->
+    <div class="notice-bar" role="note">
+        📘 Veja também nosso novo livro:
+        <a href="manutencao.html">Fundamentos de Manutenção de Software</a>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <main id="main-content" tabindex="-1">
+        <div class="page-wrap">
+            <article>
+
+                <section id="introducao" aria-labelledby="titulo-introducao">
+                    <h2 id="titulo-introducao">1.1 Introdução</h2>
+                    <p>Em 2019, ministrei pela primeira vez um curso de Engenharia de Software para alunos de graduação. Desde então, tenho estudado, trabalhado e refletido sobre questões ligadas à formação qualificada de Engenheiros de Software no Brasil. Assim, neste artigo, vou compartilhar minha visão sobre os desafios envolvidos nessa tarefa.</p>
+                </section>
+
+                <section id="relevancia" aria-labelledby="titulo-relevancia">
+                    <h2 id="titulo-relevancia">1.2 Relevância</h2>
+                    <p>Primeiro, para delimitar o contexto deste artigo, acho importante começar lembrando que Engenharia de Software é cada vez mais essencial na formação de alunos de Ciência da Computação, Sistemas de Informação, Engenharia de Computação, etc.</p>
+                    <p>Para ressaltar esse fato, na primeira aula da minha disciplina apresento para os alunos o seguinte diagrama.</p>
+
+                    <figure>
+                        <img
+                            src="https://engsoftmoderna.info/artigos/figs/desafios-engsoft.png"
+                            alt="Gráfico mostrando que grandes empresas possuem de 10 a 20 vezes mais engenheiros de software do que profissionais de outras áreas técnicas."
+                            style="width:75%;"
+                        />
+                        <figcaption>Proporção de Engenheiros de Software versus Cientistas da Computação em grandes empresas de tecnologia.</figcaption>
+                    </figure>
+
+                    <p>Esclareço que ele não é baseado em nenhum estudo científico, mas na minha experiência acadêmica e profissional. Segundo dados do mercado, grandes empresas de tecnologia possuem de 10 a 20 vezes mais engenheiros de software do que Product Managers (PMs), analistas, cientistas de dados e designers de interfaces.</p>
+                    <p>Portanto, a mensagem para os alunos é clara: quando vocês se formarem, não todos, mas a maioria será Engenheiro de Software — ou terá um título equivalente, como Frontend, Backend, Fullstack, Mobile developer, Arquiteto de Software, Tech ou Squad Lead, etc.</p>
+
+                    <h3>Contexto Brasileiro</h3>
+                    <p>Temos no Brasil capacidade, vocação e potencial para desenvolver um mercado de software relevante e com impacto global. Por outro lado, temos esse descasamento paradoxal entre oferta e demanda de profissionais de TI: em um país com um brutal problema de desemprego, empresas de TI acumulam centenas de milhares de vagas abertas, sendo a maioria delas para trabalho diretamente relacionado com Engenharia de Software.</p>
+                    <p>Assim, acredito que nunca foi tão importante formar, no Brasil, um maior número de profissionais com capacidade e interesse de atuar na área de Engenharia de Software.</p>
+                </section>
+
+                <section id="eixos" aria-labelledby="titulo-eixos">
+                    <h2 id="titulo-eixos">1.3 Eixos de Formação</h2>
+                    <p>O propósito central deste artigo é destacar que a formação qualificada de Engenheiros de Software requer um conjunto de esforços em dois eixos:</p>
+
+                    <!--
+                        content-grid: layout responsivo Mobile-First (Unidade 3 – Aula 07/05)
+                        Mobile  → 1 coluna  (base)
+                        Tablet  → 2 colunas (@media min-width: 600px)
+                        Desktop → 3 colunas (@media min-width: 1024px)
+                    -->
+                    <div class="content-grid" role="list">
+
+                        <article role="listitem" style="background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--purple);border-radius:var(--radius);padding:20px;">
+                            <h3 style="font-family:'Syne',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Eixo Central</h3>
+                            <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--purple);margin-bottom:8px;">Formação Conceitual</p>
+                            <p style="font-size:.9rem;color:var(--ink-muted);">Conceitos, práticas e princípios modernos de processos, projeto, arquitetura, testes e manutenção de software.</p>
+                        </article>
+
+                        <article role="listitem" style="background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--purple);border-radius:var(--radius);padding:20px;">
+                            <h3 style="font-family:'Syne',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Eixo Central</h3>
+                            <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--purple);margin-bottom:8px;">Formação Prática</p>
+                            <p style="font-size:.9rem;color:var(--ink-muted);">Aplicação real dos conceitos em projetos com métodos ágeis, sprints, testes e entrega contínua.</p>
+                        </article>
+
+                        <article role="listitem" style="background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--gold);border-radius:var(--radius);padding:20px;">
+                            <h3 style="font-family:'Syne',sans-serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px;">Eixo Transversal</h3>
+                            <p style="font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--purple);margin-bottom:8px;">Soft Skills &amp; Negócios</p>
+                            <p style="font-size:.9rem;color:var(--ink-muted);">Trabalho em equipe, liderança, comunicação, visão de negócios e empreendedorismo interno.</p>
+                        </article>
+
+                    </div>
+
+                    <figure>
+                        <img
+                            src="https://engsoftmoderna.info/artigos/figs/eixos-formacao-es.jpg"
+                            alt="Infográfico detalhando os dois eixos de formação: o Eixo Central, com formação conceitual e prática, e o Eixo Transversal, com soft skills e visão de negócios."
+                            style="width:70%;"
+                        />
+                        <figcaption>Infográfico dos dois eixos de formação em Engenharia de Software.</figcaption>
+                    </figure>
+                </section>
+
+                <section id="eixo-central" aria-labelledby="titulo-eixo-central">
+                    <h2 id="titulo-eixo-central">1.4 Eixo Central de Formação</h2>
+                    <p>Este eixo envolve a formação básica de um Engenheiro de Software, contemplando o desenvolvimento de habilidades conceituais e práticas.</p>
+
+                    <h3>Formação Conceitual</h3>
+                    <p>Quando ministrei a disciplina de Engenharia de Software pela primeira vez, senti uma falta de livros didáticos mais modernos na área. Por isso, dediquei um ano de intenso trabalho para escrever um <a href="engsoftmoderna.html">livro-texto</a> sobre Engenharia de Software — transmitindo conceitos, práticas e princípios modernos de processos, projeto, arquitetura, testes, manutenção, etc.</p>
+                    <p>Após três anos de seu lançamento, mais de 200 professores estão usando o nosso material. Para manter o livro enxuto (<em>lean</em>), com cerca de 400 páginas, sempre nos lembramos da seguinte frase:</p>
+
+                    <blockquote>
+                        <p>Eu não tive tempo de escrever uma carta curta, então acabei escrevendo uma carta longa…</p>
+                        <footer>— <cite>Mark Twain</cite></footer>
+                    </blockquote>
+
+                    <p>Extensões do livro estão em pleno andamento na forma de <a href="artigos.html">artigos didáticos</a> — sempre auto-contidos e acompanhados de exercícios.</p>
+
+                    <h3>Formação Prática</h3>
+                    <p>De nada adianta dominar a teoria se o aluno nunca a colocou em prática. Como dizia Linus Torvalds:</p>
+
+                    <blockquote>
+                        <p>Falar é fácil, mas quero ver o código!</p>
+                        <footer>— <cite>Linus Torvalds</cite></footer>
+                    </blockquote>
+
+                    <p>Para atender à formação prática dos alunos, trabalhamos em duas frentes principais:</p>
+                    <ul>
+                        <li>Oferecendo na UFMG a disciplina <strong>Prática de Desenvolvimento de Software</strong>, com trabalho em equipe usando método ágil — histórias de usuários, sprints, <em>sprint reviews</em>, testes, etc.</li>
+                        <li>Desenvolvendo roteiros e programas ilustrativos de pequeno porte que exercitam conceitos básicos de processos, arquitetura, devops e testes.</li>
+                    </ul>
+                </section>
+
+                <section id="eixo-transversal" aria-labelledby="titulo-eixo-transversal">
+                    <h2 id="titulo-eixo-transversal">1.5 Eixo Transversal de Formação</h2>
+                    <p>Neste eixo estão incluídas duas categorias de formação: comportamental e em negócios — questões que também são importantes para outros profissionais de computação, como cientistas de dados e administradores de redes.</p>
+
+                    <h3>Formação Comportamental</h3>
+                    <p>Hoje em dia, não basta saber programar e dominar os conceitos básicos da área. O Engenheiro de Software moderno tem que saber trabalhar em equipe, liderar e ser liderado, comunicar-se de forma escrita e oral, ouvir e falar na hora certa.</p>
+                    <p>Em um <a href="https://homepages.dcc.ufmg.br/~mtov/pub/2020-ist-skills.pdf">artigo</a> publicado na revista <em>Information and Software Technology</em>, analisamos ofertas de emprego no Stack Overflow Jobs e confirmamos que a grande maioria faz referência a soft skills:</p>
+
+                    <figure>
+                        <img
+                            src="https://engsoftmoderna.info/artigos/figs/soft-skills.jpg"
+                            alt="Lista de soft skills mais demandadas segundo Stack Overflow Jobs: Comunicação, Trabalho em Equipe, Liderança e Adaptabilidade."
+                        />
+                        <figcaption>Soft skills mais demandadas em Engenheiros de Software segundo o Stack Overflow Jobs.</figcaption>
+                    </figure>
+
+                    <h3>Formação em Negócios</h3>
+                    <p>Em um mundo cada vez mais ágil, os Engenheiros de Software não podem restringir sua atuação à escrita de código — precisam refletir constantemente sobre o valor gerado pelo código que produzem.</p>
+                    <p>O desenvolvedor moderno deve propor novas funcionalidades, participar da evolução dos sistemas e sugerir novas oportunidades de negócio. Idealmente, um time deve relacionar seu trabalho com a melhoria de indicadores de negócio: ampliar a base de clientes, reduzir cancelamentos ou economizar em serviços de nuvem.</p>
+                    <p>Outras disciplinas — como <strong>empreendedorismo</strong> — podem também ajudar nessa formação. Engenharia de Software é o motor da maioria dos processos de transformação digital.</p>
+                </section>
+
+                <section id="conclusao" aria-labelledby="titulo-conclusao">
+                    <h2 id="titulo-conclusao">1.6 Conclusão</h2>
+                    <p>Para concluir, dois pré-requisitos são fundamentais para iniciar a formação de engenheiros de software:</p>
+                    <ul>
+                        <li>É muito importante que o aluno <strong>goste</strong> de programar. Cada vez mais, engenheiros de software têm que escrever código — há pouco espaço para dizer <q>eu não preciso programar, pois sou arquiteto ou analista</q>.</li>
+                        <li>É muito importante também que o aluno <strong>saiba</strong> programar, com domínio de conceitos básicos de programação, algoritmos e estruturas de dados.</li>
+                    </ul>
+
+                    <hr />
+                    <p>Voltar para a lista de <a href="./artigos.html">artigos</a>.</p>
+                </section>
+
+
+                <!-- ══════════════════════════════════════
+                     SEÇÃO INTERATIVA — Aula 13 (14/05/2026)
+                     JavaScript, DOM e Eventos
+                     Profa. Kadidja Valéria | CEUB
+                ══════════════════════════════════════ -->
+                <section id="interatividade" aria-labelledby="titulo-interatividade">
+                    <div class="js-section">
+                        <span class="js-badge" aria-label="Aula 13">⚡ Aula 13 — JavaScript e Interatividade</span>
+
+                        <h2 id="titulo-interatividade" style="margin-top:.5rem;">Demo: DOM e Eventos</h2>
+                        <p>Esta seção demonstra a manipulação do DOM via JavaScript, aplicando os três eventos obrigatórios da atividade (<code>click</code>, <code>mouseover</code>, <code>keyup</code>) e dois eventos extras (<code>dblclick</code>, <code>keydown</code>), além de esconder/mostrar elementos dinamicamente.</p>
+
+                        <!-- Botão toggle externo ao painel (controla visibilidade) -->
+                        <button
+                            class="js-btn js-btn-gold"
+                            id="btnToggle"
+                            aria-expanded="true"
+                            aria-controls="painel-js"
+                            style="margin-bottom:1rem;"
+                        >🙈 Esconder painel</button>
+
+                        <!-- Painel principal -->
+                        <div id="painel-js">
+
+                            <!-- Feedback do DOM -->
+                            <p
+                                id="mensagem"
+                                class="js-feedback"
+                                aria-live="polite"
+                                aria-atomic="true"
+                            >Interaja com os botões abaixo para ver o DOM em ação.</p>
+
+                            <!-- Botões de evento -->
+                            <div class="js-controls" role="group" aria-label="Botões de interação">
+                                <button
+                                    class="js-btn js-btn-primary"
+                                    id="btnClique"
+                                    type="button"
+                                    aria-pressed="false"
+                                >👆 Clique aqui</button>
+
+                                <button
+                                    class="js-btn js-btn-secondary"
+                                    id="btnReset"
+                                    type="button"
+                                >🔄 Resetar</button>
+                            </div>
+
+                            <p style="font-size:.8rem;color:var(--ink-muted);margin-bottom:1.2rem;">
+                                Dica: passe o mouse sobre o botão azul (mouseover), clique uma vez (click) ou clique duas vezes rapidamente (dblclick).
+                            </p>
+
+                            <!-- Campo de texto + eco -->
+                            <div class="js-input-wrap">
+                                <label for="campoTexto">Digite algo (keyup + keydown):</label>
+                                <input
+                                    class="js-input"
+                                    type="text"
+                                    id="campoTexto"
+                                    placeholder="Comece a digitar..."
+                                    maxlength="120"
+                                    autocomplete="off"
+                                    aria-describedby="eco contador"
+                                />
+                                <p class="js-counter" id="contador" aria-live="polite">0 caractere(s)</p>
+                                <p class="js-eco" id="eco" aria-live="polite"></p>
+                            </div>
+
+                            <!-- Tags dos eventos implementados -->
+                            <div class="js-event-tags" aria-label="Eventos implementados">
+                                <span class="js-tag js-tag-required">✅ click</span>
+                                <span class="js-tag js-tag-required">✅ mouseover</span>
+                                <span class="js-tag js-tag-required">✅ keyup</span>
+                                <span class="js-tag js-tag-extra">★ dblclick</span>
+                                <span class="js-tag js-tag-extra">★ keydown</span>
+                                <span class="js-tag js-tag-extra">★ esconder/mostrar</span>
+                            </div>
+
+                        </div><!-- /#painel-js -->
+                    </div><!-- /.js-section -->
+                </section>
+
+
+                <!-- ══════════════════════════
+                     DESAFIOS EXTRAS — Aula 13
+                ══════════════════════════ -->
+                <section id="desafios" aria-labelledby="titulo-desafios">
+                    <div class="js-section" style="border-top-color: var(--purple-light);">
+                        <span class="js-badge" aria-label="Desafios Extras">🏆 Desafios Extras — JavaScript</span>
+                        <h2 id="titulo-desafios" style="margin-top:.5rem;">Desafios por Nível</h2>
+                        <p>Implementações dos desafios extras da Aula 13, organizados por nível de dificuldade.</p>
+
+                        <!-- ─── 🟢 FÁCIL ─── -->
+                        <div class="desafio-card">
+                            <span class="nivel-badge nivel-facil">🟢 Nível Fácil</span>
+                            <h3>Alterar a cor de fundo da página</h3>
+                            <p style="font-size:.9rem;color:var(--ink-muted);margin-bottom:1rem;">
+                                Cada clique no botão aplica um novo tema de fundo à página via <code>classList.add()</code> no <code>body</code>. O tema cicla entre Roxo, Verde, Laranja e Azul.
+                            </p>
+                            <button
+                                class="js-btn js-btn-primary"
+                                id="btnCorFundo"
+                                type="button"
+                            >🎨 Tema: Padrão — Clique para trocar</button>
+                        </div>
+
+                        <!-- ─── 🟡 MÉDIO ─── -->
+                        <div class="desafio-card">
+                            <span class="nivel-badge nivel-medio">🟡 Nível Médio</span>
+                            <h3>Contador de cliques + alternar estilo</h3>
+
+                            <p style="font-size:.9rem;color:var(--ink-muted);margin-bottom:.6rem;">
+                                <strong>Parte A:</strong> cada clique incrementa o contador. Fica vermelho acima de 20.
+                            </p>
+                            <div class="contador-wrap">
+                                <span class="contador-display" id="displayContador" aria-live="polite" aria-label="Total de cliques">0</span>
+                                <div style="display:flex;flex-direction:column;gap:8px;">
+                                    <button class="js-btn js-btn-primary" id="btnContador" type="button">👆 Clique para contar</button>
+                                    <button class="js-btn js-btn-secondary" id="btnZerarContador" type="button">🔄 Zerar</button>
+                                </div>
+                            </div>
+
+                            <hr style="border-color:var(--border);margin:1.2rem 0;" />
+
+                            <p style="font-size:.9rem;color:var(--ink-muted);margin-bottom:.6rem;">
+                                <strong>Parte B:</strong> <code>classList.toggle()</code> alterna entre dois estilos visuais do card abaixo.
+                            </p>
+                            <div class="card-estilo" id="cardEstilo" aria-live="polite">
+                                ✨ Este card muda de estilo ao clicar no botão abaixo!
+                            </div>
+                            <button
+                                class="js-btn js-btn-secondary"
+                                id="btnToggleEstilo"
+                                type="button"
+                                aria-pressed="false"
+                            >🌗 Alternar estilo</button>
+                        </div>
+
+                        <!-- ─── 🔴 AVANÇADO ─── -->
+                        <div class="desafio-card">
+                            <span class="nivel-badge nivel-avancado">🔴 Nível Avançado</span>
+                            <h3>Lista dinâmica de itens</h3>
+                            <p style="font-size:.9rem;color:var(--ink-muted);margin-bottom:.8rem;">
+                                Digite um item e pressione <kbd style="font-family:monospace;background:var(--border);padding:1px 6px;border-radius:4px;">Enter</kbd> ou clique em Adicionar. Cada item tem um botão × para remover com animação.
+                            </p>
+
+                            <div class="lista-input-row">
+                                <input
+                                    class="js-input"
+                                    type="text"
+                                    id="inputLista"
+                                    placeholder="Digite um tópico de ES que você aprendeu..."
+                                    maxlength="80"
+                                    autocomplete="off"
+                                    aria-label="Novo item para a lista"
+                                />
+                                <button class="js-btn js-btn-primary" id="btnAdicionarItem" type="button">+ Adicionar</button>
+                            </div>
+
+                            <ul id="listaItens" aria-label="Lista de itens adicionados" aria-live="polite"></ul>
+                            <p class="aviso-vazio" id="avisoVazio">A lista está vazia. Adicione seu primeiro item acima!</p>
+                        </div>
+
+                        <!-- Tags dos desafios -->
+                        <div class="js-event-tags" aria-label="Desafios implementados">
+                            <span class="js-tag" style="background:rgba(16,185,129,.1);color:#059669;border:1px solid rgba(16,185,129,.3);">🟢 Cor de fundo</span>
+                            <span class="js-tag" style="background:rgba(245,158,11,.1);color:#b45309;border:1px solid rgba(245,158,11,.3);">🟡 Contador de cliques</span>
+                            <span class="js-tag" style="background:rgba(245,158,11,.1);color:#b45309;border:1px solid rgba(245,158,11,.3);">🟡 classList.toggle()</span>
+                            <span class="js-tag" style="background:rgba(239,68,68,.1);color:#dc2626;border:1px solid rgba(239,68,68,.3);">🔴 Lista dinâmica</span>
+                        </div>
+
+                    </div>
+                </section>
+
+            </article>
+        </div>
     </main>
 
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>Engenharia de Software Moderna</h3>
-                    <p>© 2024 Marco Tulio Valente. Conteúdo para fins educacionais.</p>
-                    <p><small>Desenvolvido seguindo normas de Acessibilidade e HTML5 Semântico.</small></p>
-                </div>
-                <div>
-                    <h4>Links Úteis</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><a href="https://manutencaosoftware.org/">Manutenção de Software</a></li>
-                        <li><a href="https://forms.gle/YhKNRZjkHu7ASc7M8">Reportar Erro / Feedback</a></li>
-                        <li><a href="#main-content">Ir para o topo</a></li>
-                    </ul>
-                </div>
+    <!-- ══ FOOTER ══ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>Sobre o Conteúdo</h3>
+                <p>Artigo original escrito por <strong style="color:#fff;">Marco Tulio Valente</strong>, professor da UFMG e autor do livro Engenharia de Software Moderna.</p>
+                <p style="margin-top:.8rem;">© 2024 Marco Tulio Valente.<br>Conteúdo para fins educacionais.</p>
             </div>
+
+            <div class="footer-col">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#introducao">1.1 Introdução</a></li>
+                    <li><a href="#relevancia">1.2 Relevância</a></li>
+                    <li><a href="#eixos">1.3 Eixos de Formação</a></li>
+                    <li><a href="#eixo-central">1.4 Eixo Central</a></li>
+                    <li><a href="#eixo-transversal">1.5 Eixo Transversal</a></li>
+                    <li><a href="#conclusao">1.6 Conclusão</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="engsoftmoderna.html">Página Principal do Livro</a></li>
+                    <li><a href="manutencao.html">Manutenção de Software</a></li>
+                    <li><a href="artigos.html">Artigos Didáticos</a></li>
+                    <li><a href="https://forms.gle/YhKNRZjkHu7ASc7M8">Reportar Erro / Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="footer-credits">
+                <span class="tag">Reestruturação</span>
+                <span>Site reestruturado por <strong style="color:rgba(255,255,255,.8);">Renato Moreira Santos Faria</strong></span>
+            </div>
+
+            <a
+                href="https://github.com/renasrenas2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-link"
+                aria-label="Perfil do GitHub de Renato Moreira Santos Faria (abre em nova aba)"
+            >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                github.com/renasrenas2
+            </a>
         </div>
     </footer>
 
     <script>
+        // Dark mode
         const btn = document.getElementById('dark-mode-toggle');
         btn.addEventListener('click', () => {
-            const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-            btn.textContent = theme === 'dark' ? 'Modo Light' : 'Modo Dark';
+            const isPressed = btn.getAttribute('aria-pressed') === 'true';
+            const newTheme = isPressed ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            btn.setAttribute('aria-pressed', String(!isPressed));
+            btn.textContent = newTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
+        });
+
+        // Mobile hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks  = document.getElementById('primary-nav');
+        hamburger.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('open');
+            hamburger.setAttribute('aria-expanded', String(open));
+            hamburger.textContent = open ? '✕' : '☰';
+        });
+        navLinks.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.textContent = '☰';
+            });
         });
     </script>
+    <!-- Script externo vinculado no final do body (Aula 13 — Etapa 2) -->
+    <script src="script.js"></script>
 </body>
 </html>
