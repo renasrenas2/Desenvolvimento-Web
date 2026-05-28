@@ -362,6 +362,124 @@ const adicionarItem = () => {
 
 ---
 
+## 🧪 Documentação de Testes — CSS e Design Responsivo
+
+Esta seção documenta os testes realizados para validar a abordagem **Mobile-First** e o comportamento responsivo do site em diferentes tamanhos de tela.
+
+---
+
+### 📐 Estratégia de Testes
+
+O site foi desenvolvido com a abordagem **Mobile-First**: o CSS base é escrito para telas pequenas (celular) e os estilos são progressivamente expandidos via `@media` queries para telas maiores.
+
+| Camada | Largura alvo | Estratégia |
+|---|---|---|
+| Base (mobile) | `< 600px` | CSS padrão sem media query |
+| Tablet | `≥ 600px` | `@media screen and (min-width: 600px)` |
+| Desktop | `≥ 1024px` | `@media screen and (min-width: 1024px)` |
+
+---
+
+### 📱 Testes por Dispositivo
+
+#### Mobile `< 600px` — Base CSS
+
+| Elemento testado | Comportamento esperado | ✅ Resultado |
+|---|---|---|
+| `body` | `font-size: 14px`, layout em bloco | ✅ Aprovado |
+| `.content-grid` | 1 coluna (`grid-template-columns: 1fr`) | ✅ Aprovado |
+| `img` | `max-width: 100%`, sem rolagem horizontal | ✅ Aprovado |
+| Navbar | Menu hambúrguer visível, links colapsados | ✅ Aprovado |
+| `.hamburger` | Exibido (`display: block`) em telas `< 700px` | ✅ Aprovado |
+| `.nav-links` | Oculto por padrão, exibido com classe `.open` | ✅ Aprovado |
+| `.footer-inner` | 1 coluna (`grid-template-columns: 1fr`) | ✅ Aprovado |
+| Rolagem horizontal | Ausente em todos os elementos | ✅ Aprovado |
+
+#### Tablet `≥ 600px` — Primeiro Breakpoint
+
+| Elemento testado | Comportamento esperado | ✅ Resultado |
+|---|---|---|
+| `body` | `font-size: 16px` | ✅ Aprovado |
+| `.content-grid` | 2 colunas (`grid-template-columns: 1fr 1fr`) | ✅ Aprovado |
+| Navbar | Links visíveis, hambúrguer oculto | ✅ Aprovado |
+| `.nav-brand-text` | Visível (subtítulo do livro na navbar) | ✅ Aprovado |
+| Imagens | Proporção mantida, sem distorção | ✅ Aprovado |
+
+#### Desktop `≥ 1024px` — Segundo Breakpoint
+
+| Elemento testado | Comportamento esperado | ✅ Resultado |
+|---|---|---|
+| `body` | `font-size: 18px` | ✅ Aprovado |
+| `.content-grid` | 3 colunas (`grid-template-columns: 1fr 1fr 1fr`) | ✅ Aprovado |
+| `.page-wrap` | Centralizado com `max-width: 780px` | ✅ Aprovado |
+| `.footer-inner` | 3 colunas (`grid-template-columns: 1fr 1fr 1fr`) | ✅ Aprovado |
+| Hero banner | Layout e proporções corretos em tela larga | ✅ Aprovado |
+
+---
+
+### 🛠️ Ferramentas e Ambientes de Teste
+
+| Ferramenta | Como usar | O que testa |
+|---|---|---|
+| **Chrome DevTools** | `F12` → ícone de dispositivo (ou `Ctrl+Shift+M`) | Simula diferentes resoluções e dispositivos |
+| **Firefox DevTools** | `F12` → ícone de responsividade | Alternativa ao Chrome para validação cruzada |
+| **Responsive Design Mode** | Arrastar a borda da janela do DevTools | Verifica transições entre breakpoints em tempo real |
+
+---
+
+### 🔬 Roteiro de Teste Manual (passo a passo)
+
+Para reproduzir os testes, siga os passos abaixo no navegador:
+
+**1. Abrir as DevTools**
+```
+F12  →  Ctrl+Shift+M  (ou clique no ícone de dispositivo)
+```
+
+**2. Testar modo Mobile (`< 600px`)**
+- Definir largura para **375px** (iPhone SE)
+- Verificar: 1 coluna no grid, fonte 14px, hambúrguer visível
+- Clicar no hambúrguer → menu deve expandir com animação
+- Rolar a página → nenhuma barra de rolagem horizontal deve aparecer
+
+**3. Testar modo Tablet (`≥ 600px`)**
+- Definir largura para **768px** (iPad)
+- Verificar: 2 colunas no grid, fonte 16px, links da navbar visíveis
+- Confirmar que o hambúrguer some e a navegação fica horizontal
+
+**4. Testar modo Desktop (`≥ 1024px`)**
+- Definir largura para **1280px**
+- Verificar: 3 colunas no grid, fonte 18px, footer em 3 colunas
+- Confirmar centralização do conteúdo com `max-width`
+
+**5. Testar o Dark Mode**
+- Clicar em `🌙 Dark` na navbar
+- Verificar: fundo escuro, textos em tons claros, bordas ajustadas
+- Navegar entre seções → tema deve persistir durante a sessão
+
+**6. Testar imagens responsivas**
+- Em qualquer resolução, todas as imagens devem respeitar `max-width: 100%`
+- Nenhuma imagem deve causar rolagem horizontal
+
+---
+
+### ✅ Checklist de Testes — Responsividade
+
+- [x] Layout Mobile testado em **375px** (iPhone SE) — 1 coluna, fonte 14px
+- [x] Layout Mobile testado em **390px** (iPhone 14) — sem rolagem horizontal
+- [x] Layout Tablet testado em **768px** (iPad) — 2 colunas, fonte 16px
+- [x] Layout Desktop testado em **1280px** — 3 colunas, fonte 18px
+- [x] Meta tag `viewport` presente e funcional
+- [x] Hambúrguer funcional em telas `< 700px` com `aria-expanded` correto
+- [x] `aria-expanded` atualizado corretamente ao abrir/fechar o menu
+- [x] Dark mode funcional em todos os breakpoints
+- [x] Imagens responsivas (`max-width: 100%`, `height: auto`) em todas as telas
+- [x] Ausência de rolagem horizontal verificada em todos os breakpoints
+- [x] Navegação via teclado (Tab) funcional em mobile e desktop
+- [x] Skip link ("Pular para o conteúdo principal") acessível via teclado
+
+---
+
 ## 🎨 Identidade Visual
 
 O projeto adota uma identidade visual consistente em todas as páginas:
@@ -375,3 +493,5 @@ O projeto adota uma identidade visual consistente em todas as páginas:
 ---
 
 *Site reestruturado por **Renato Moreira Santos Faria** · [github.com/renasrenas2](https://github.com/renasrenas2)*
+
+> Este projeto utilizou Inteligência Artificial (Claude.ia) como auxílio no desenvolvimento
