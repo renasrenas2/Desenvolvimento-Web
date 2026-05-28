@@ -31,7 +31,8 @@ Desafio_HTML_semantico_acessibilidade/
 ├── js/
 │   ├── script.js             # Interatividade (eventos DOM) da página principal
 │   └── navbar.js             # Lógica da navbar responsiva (hamburger menu)
-├── vue-prototipo.html        # Protótipo Vue.js 3 via CDN (Aula 11)
+├── vue-prototipo.html                # Protótipo Vue.js 3 via CDN (Aula 11)
+├── site_original_sem_alteracoes.html # Código original mantido para comparação
 └── README.md
 ```
 
