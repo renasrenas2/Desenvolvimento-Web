@@ -1,7 +1,9 @@
 # 🚀 Reestruturação Semântica, Acessibilidade e Design Responsivo
 
 **Curso:** Engenharia de Software
+
 **Disciplina:** Desenvolvimento Web
+
 **Feito por:** Renato Moreira Santos Faria
 
 ---
