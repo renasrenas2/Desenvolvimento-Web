@@ -11,9 +11,13 @@
 ---
 ## Documentação dos Testes
 Teste usando o DevTools (F12) em diferentes dispositivos:
+
+
 <img width="374" height="924" alt="image" src="https://github.com/user-attachments/assets/71ac5a6f-e6f2-47c4-aa79-5e6ed3e3135e" />
 
+
 <img width="525" height="880" alt="image" src="https://github.com/user-attachments/assets/3cc19100-aca5-431b-96b7-e8888353ca3b" />
+
 
 ## 📋 Sobre o Projeto
 
