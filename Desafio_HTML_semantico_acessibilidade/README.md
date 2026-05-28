@@ -16,13 +16,24 @@ Este repositório reúne as atividades práticas da disciplina de Desenvolviment
 
 ## 📂 Estrutura do Repositório
 
-| Arquivo | Descrição |
-|---|---|
-| `index.html` | Página principal — artigo com semântica, acessibilidade e responsividade |
-| `engsoftmoderna.html` | Página do livro Engenharia de Software Moderna |
-| `manutencao.html` | Página do livro Fundamentos de Manutenção de Software |
-| `artigos.html` | Página de artigos didáticos |
-| `site_original_sem_alteracoes.html` | Código original mantido para comparação |
+```
+Desafio_HTML_semantico_acessibilidade/
+├── html/
+│   ├── index.html            # Página principal — artigo com semântica, acessibilidade e responsividade
+│   ├── engsoftmoderna.html   # Página do livro Engenharia de Software Moderna
+│   ├── manutencao.html       # Página do livro Fundamentos de Manutenção de Software
+│   └── artigos.html          # Página de artigos didáticos
+├── css/
+│   ├── index.css             # Estilos da página principal
+│   ├── engsoftmoderna.css    # Estilos da página ES Moderna
+│   ├── manutencao.css        # Estilos da página Manutenção
+│   └── artigos.css           # Estilos da página de artigos
+├── js/
+│   ├── script.js             # Interatividade (eventos DOM) da página principal
+│   └── navbar.js             # Lógica da navbar responsiva (hamburger menu)
+├── vue-prototipo.html        # Protótipo Vue.js 3 via CDN (Aula 11)
+└── README.md
+```
 
 ---
 
@@ -221,16 +232,6 @@ btnToggle.addEventListener('click', () => {
 });
 ```
 
-### 📂 Novo arquivo no projeto
-```
-pasta-do-projeto/
-├── index.html    ← seção #interatividade adicionada + <script src="script.js">
-├── script.js     ← arquivo JS separado (novo)
-├── engsoftmoderna.html
-├── manutencao.html
-└── artigos.html
-```
-
 ### ✅ Checklist — Aula 13
 
 - [x] Reutilização da página responsiva criada em 07/05
@@ -340,19 +341,6 @@ const adicionarItem = () => {
 - A **Composition API** do Vue 3 (`setup()`, `ref()`) tem sintaxe diferente da Options API (Vue 2), o que gerou confusão inicial na hora de expor variáveis ao template.
 - O `transition-group` para animar a lista exige que cada item tenha uma `key` única — resolvido usando `Date.now()` como ID.
 - Sem servidor local, alguns navegadores bloqueiam módulos ES (`import/export`). A solução foi usar a build **global** do Vue via CDN (`vue.global.js`), que expõe tudo em `window.Vue`.
-
-### 📂 Arquivo entregável
-
-```
-pasta-do-projeto/
-├── vue-prototipo.html   ← protótipo Vue.js (novo)
-├── index.html
-├── script.js
-├── engsoftmoderna.html
-├── manutencao.html
-├── artigos.html
-└── README.md
-```
 
 ### ✅ Checklist — Aula 11
 
