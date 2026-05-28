@@ -9,6 +9,9 @@
 **Link para o site:** comfy-travesseiro-4b1b81.netlify.app
 
 ---
+## Documentação dos Testes
+Teste usando o DevTools (F12) em diferentes dispositivos:
+<img width="1364" height="958" alt="image" src="https://github.com/user-attachments/assets/c754cd4e-ab48-4d60-9920-72e3d641090e" />
 
 ## 📋 Sobre o Projeto
 
