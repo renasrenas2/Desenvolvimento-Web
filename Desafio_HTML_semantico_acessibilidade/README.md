@@ -248,6 +248,127 @@ pasta-do-projeto/
 
 ---
 
+## 📅 Aula 11 — Frameworks Front-end: Prototipagem Ágil
+### Atividade correspondente ao dia 21/05/2026
+
+Evolução da aplicação para o universo dos **frameworks front-end modernos**.  
+A aula foi dividida em duas missões: um seminário colaborativo (Missão 1) e um laboratório prático (Missão 2).
+
+---
+
+### 🎓 Missão 1 — Seminário Colaborativo
+
+Framework estudado: **Vue.js**
+
+#### Por que Vue.js? (Justificativa)
+
+Vue.js foi escolhido por três razões principais:
+
+1. **Menor curva de aprendizado** entre os três frameworks (React, Angular, Vue.js), com sintaxe intuitiva e próxima do HTML/CSS/JS que já dominamos nas aulas anteriores.
+2. **Funciona via CDN** sem necessidade de instalar Node.js, npm ou CLI — permitindo rodar o protótipo diretamente no navegador como um único arquivo `.html`, ideal para o ambiente de laboratório.
+3. **Framework Progressivo** — pode ser adotado gradualmente em um projeto existente, o que se alinha bem com a proposta de evolução incremental que seguimos ao longo da disciplina.
+
+#### Tópicos obrigatórios do seminário
+
+| Tópico | Vue.js |
+|---|---|
+| **Filosofia** | Framework Progressivo — adoção gradual, sem impor estrutura |
+| **Criado por** | Evan You (ex-Google), 2014 |
+| **Curva de aprendizado** | Baixa — sintaxe intuitiva, próxima do HTML |
+| **Vantagens** | Leve, flexível, excelente documentação em PT-BR |
+| **Limitações** | Ecossistema menor que React; menos adotado em grandes empresas |
+| **Cenário ideal** | Protótipos rápidos, projetos ágeis, refatoração de legados |
+| **Exemplos reais** | Alibaba, Xiaomi, GitLab |
+
+#### Comparativo rápido (Matriz Diagnóstica da aula)
+
+| Dimensão | React | Angular | **Vue.js** |
+|---|---|---|---|
+| Filosofia | Biblioteca de UI | Framework Completo (MVC) | **Framework Progressivo** |
+| Curva de aprendizado | Média | Alta | **Baixa** |
+| Cenário ideal | Startups, ecossistemas densos | Aplicações Enterprise | **Projetos ágeis, legados** |
+
+---
+
+### 🔬 Missão 2 — Laboratório Prático
+
+**Arquivo:** `vue-prototipo.html`  
+**Tecnologia:** Vue.js 3 via CDN (sem instalação, roda direto no navegador)
+
+#### Requisitos funcionais implementados
+
+| # | Requisito | Implementação Vue.js |
+|---|---|---|
+| 1 | Título dinâmico | `v-model` vincula o `<input>` ao dado `titulo` em tempo real |
+| 2 | Botão interativo (evento de clique) | `@click`, `@dblclick`, `@mouseover` com dados reativos |
+| 3 | Lista dinâmica de itens | `v-for` renderiza o array `itens` automaticamente |
+
+#### Conceitos Vue.js demonstrados no protótipo
+
+```javascript
+// Composition API — Vue 3
+const { createApp, ref, computed } = Vue
+
+// Dado reativo (Requisito 1 — título dinâmico)
+const titulo = ref('Desafios da Formação de Engenheiros de Software')
+
+// Evento de clique (Requisito 2)
+const cliques = ref(0)
+// No template: <button @click="cliques++">Clique</button>
+
+// Array reativo (Requisito 3 — lista dinâmica)
+const itens = ref([])
+const adicionarItem = () => {
+    itens.value.push({ id: Date.now(), texto: novoItem.value })
+}
+// No template: <li v-for="item in itens" :key="item.id">{{ item.texto }}</li>
+```
+
+#### Diferencial Vue vs Vanilla JS
+
+| Tarefa | Vanilla JS (Aulas anteriores) | Vue.js (Esta aula) |
+|---|---|---|
+| Atualizar texto | `document.getElementById('x').textContent = valor` | `{{ titulo }}` — automático via `v-model` |
+| Evento de clique | `btn.addEventListener('click', fn)` | `@click="fn"` no template |
+| Renderizar lista | `document.createElement('li')` em loop | `v-for="item in itens"` |
+| Condicional | `if (x) el.style.display = 'block'` | `v-if="x"` no template |
+
+#### Fricções encontradas
+
+- A **Composition API** do Vue 3 (`setup()`, `ref()`) tem sintaxe diferente da Options API (Vue 2), o que gerou confusão inicial na hora de expor variáveis ao template.
+- O `transition-group` para animar a lista exige que cada item tenha uma `key` única — resolvido usando `Date.now()` como ID.
+- Sem servidor local, alguns navegadores bloqueiam módulos ES (`import/export`). A solução foi usar a build **global** do Vue via CDN (`vue.global.js`), que expõe tudo em `window.Vue`.
+
+### 📂 Arquivo entregável
+
+```
+pasta-do-projeto/
+├── vue-prototipo.html   ← protótipo Vue.js (novo)
+├── index.html
+├── script.js
+├── engsoftmoderna.html
+├── manutencao.html
+├── artigos.html
+└── README.md
+```
+
+### ✅ Checklist — Aula 11
+
+- [x] Divisão em grupos para seminário — framework escolhido: **Vue.js**
+- [x] Pesquisa sobre história, características, vantagens e limitações do Vue.js
+- [x] Justificativa da escolha documentada no README
+- [x] Instalação do ambiente — Vue.js via CDN (sem setup de Node/CLI)
+- [x] Criação do protótipo funcional (`vue-prototipo.html`)
+- [x] Requisito 1: Título dinâmico com `v-model`
+- [x] Requisito 2: Botão interativo com `@click`, `@dblclick`, `@mouseover`
+- [x] Requisito 3: Lista dinâmica com `v-for` e animação `transition-group`
+- [x] Testes executados no navegador
+- [x] Fricções técnicas documentadas no README
+- [x] Código registrado no GitHub
+
+
+---
+
 ## 🎨 Identidade Visual
 
 O projeto adota uma identidade visual consistente em todas as páginas:
