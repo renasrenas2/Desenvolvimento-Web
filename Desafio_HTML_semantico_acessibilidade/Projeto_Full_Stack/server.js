@@ -6,7 +6,7 @@
  * Aula 18: Segurança web com helmet (cabeçalhos HTTP)
  *
  * Stack: Node.js + Express + Prisma ORM + SQLite
- * Autor: Renato Moreira Santos Faria — CEUB
+ * Autor: Renato Moreira Santos Faria e Guilherme Carvalho Ribeiro — CEUB
  */
 
 'use strict'
