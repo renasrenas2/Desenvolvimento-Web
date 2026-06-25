@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engenharia de Software Moderna – Livro Digital</title>
+
+    <meta name="description" content="Princípios e Práticas para Desenvolvimento de Software com Produtividade." />
+    <meta property="og:title" content="Engenharia de Software Moderna - Livro Digital" />
+    <meta property="og:description" content="Princípios e Práticas para Desenvolvimento de Software com Produtividade." />
+    <meta property="og:image" content="https://engsoftmoderna.info/twittercard.jpg" />
+    <meta property="og:url" content="https://engsoftmoderna.info/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://engsoftmoderna.info/figs/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/engsoftmoderna.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+    <!-- ══ TOPBAR ══ -->
+    <div class="topbar" role="banner">
+        <div class="topbar-inner">
+            <a href="index.html" class="nav-brand">
+                <img
+                    src="https://engsoftmoderna.info/figs/capa/capa-principal.png"
+                    alt="Capa do livro Engenharia de Software Moderna – voltar à página principal"
+                />
+                <div class="nav-brand-text">
+                    <span class="nav-brand-title">ES Moderna</span>
+                    <span class="nav-brand-sub">Marco Tulio Valente</span>
+                </div>
+            </a>
+
+            <button class="hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">☰</button>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-links" id="primary-nav" role="list">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#versao-html">Capítulos</a></li>
+                    <li><a href="#material-apoio">Material</a></li>
+                    <li><a href="#podcast">Podcast</a></li>
+                    <li><a href="#artigos">Artigos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="index.html">← Artigo</a></li>
+                </ul>
+            </nav>
+
+            <button id="dark-mode-toggle" type="button" aria-pressed="false">🌙 Dark</button>
+        </div>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <div class="hero" aria-label="Apresentação do livro">
+        <div class="hero-inner">
+            <div class="hero-covers">
+                <div>
+                    <img
+                        src="https://engsoftmoderna.info/figs/capa/capa-principal.png"
+                        alt="Capa do livro Engenharia de Software Moderna"
+                        class="hero-cover"
+                    />
+                    <p class="hero-cover-label">Livro 1</p>
+                </div>
+                <div>
+                    <a href="manutencao.html">
+                        <img
+                            src="https://manutencaosoftware.org/figs/capa/capa.png"
+                            alt="Capa do livro Fundamentos de Manutenção de Software"
+                            class="hero-cover"
+                        />
+                    </a>
+                    <p class="hero-cover-label">Livro 2</p>
+                </div>
+            </div>
+            <div>
+                <p class="hero-eyebrow">Livro Digital · Graduação em Computação</p>
+                <h1 class="hero-title">Engenharia de Software Moderna</h1>
+                <p class="hero-tagline">Princípios e Práticas para Desenvolvimento de Software com Produtividade.</p>
+                <p class="hero-tagline">Ajudando a formar a próxima geração brasileira de Engenheiros de Software.</p>
+                <div class="hero-author">
+                    <span aria-hidden="true">✍️</span>
+                    <span>Marco Tulio Valente · ASERG · DCC · UFMG</span>
+                </div>
+                <div class="hero-badges">
+                    <span class="badge">10 Capítulos</span>
+                    <span class="badge">395 Páginas</span>
+                    <span class="badge">125 Exercícios</span>
+                    <span class="badge">500+ Professores</span>
+                    <span class="badge">Versão HTML Gratuita</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ NOTICE BAR ══ -->
+    <div class="notice-bar" role="note">
+        <mark style="font-size:.75rem;">Novo</mark>
+        Veja também o segundo livro desta série, sobre
+        <a href="manutencao.html">Manutenção de Software</a>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <main id="main-content" tabindex="-1">
+        <div class="page-wrap">
+
+            <!-- Sobre -->
+            <section id="sobre" aria-labelledby="titulo-sobre">
+                <h2 id="titulo-sobre">Sobre o Livro</h2>
+                <p>Engenharia de Software Moderna é um livro destinado a alunos de cursos de graduação em Computação. Ele pode ser lido também por profissionais que buscam um conhecimento horizontal da área. O livro possui 395 páginas, 10 capítulos e 125 exercícios de fixação.</p>
+                <p>Mais de <strong>500 professores</strong> estão usando ou já usaram o nosso livro.</p>
+                <p>Licença de uso: versão para uso pessoal, sendo proibida sua redistribuição ou modificação.</p>
+            </section>
+
+            <!-- Versão em Papel / E-book -->
+            <section id="versao-compra" aria-labelledby="titulo-compra">
+                <h2 id="titulo-compra">Versão em Papel e E-book</h2>
+                <p><strong>Papel:</strong> Compre na
+                    <a href="https://www.amazon.com.br/gp/product/6500019504" target="_blank" rel="noopener">Amazon</a>
+                    ou <a href="https://loja.umlivro.com.br/engenharia-de-software-moderna-4778188/p" target="_blank" rel="noopener">UmLivro</a>.
+                </p>
+                <p><strong>E-book:</strong> Compre na
+                    <a href="https://www.amazon.com.br/dp/B086K5QJ9V" target="_blank" rel="noopener">Amazon</a>.
+                </p>
+                <p><strong>Versão em inglês:</strong> Disponível em
+                    <a href="https://softengbook.org" target="_blank" rel="noopener">softengbook.org</a>.
+                </p>
+            </section>
+
+            <!-- Versão HTML -->
+            <section id="versao-html" aria-labelledby="titulo-html">
+                <h2 id="titulo-html">Versão HTML — Capítulos</h2>
+                <ul class="chapter-list" role="list">
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Prefácio</span>
+                        <a href="https://engsoftmoderna.info/cap0.html" class="chapter-title" target="_blank" rel="noopener">Prefácio</a>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 1</span>
+                        <a href="https://engsoftmoderna.info/cap1.html" class="chapter-title" target="_blank" rel="noopener">Introdução</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap1.html#defini%C3%A7%C3%B5es-contexto-e-hist%C3%B3ria" target="_blank" rel="noopener">Contexto Histórico</a>
+                            <a href="https://engsoftmoderna.info/cap1.html#o-que-se-estuda-em-engenharia-de-software" target="_blank" rel="noopener">Tópicos de Estudo</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 2</span>
+                        <a href="https://engsoftmoderna.info/cap2.html" class="chapter-title" target="_blank" rel="noopener">Processos</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap2.html#manifesto-%C3%A1gil" target="_blank" rel="noopener">Manifesto Ágil</a>
+                            <a href="https://engsoftmoderna.info/cap2.html#extreme-programming" target="_blank" rel="noopener">XP</a>
+                            <a href="https://engsoftmoderna.info/cap2.html#scrum" target="_blank" rel="noopener">Scrum</a>
+                            <a href="https://engsoftmoderna.info/cap2.html#kanban" target="_blank" rel="noopener">Kanban</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 3</span>
+                        <a href="https://engsoftmoderna.info/cap3.html" class="chapter-title" target="_blank" rel="noopener">Requisitos</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap3.html#hist%C3%B3rias-de-usu%C3%A1rios" target="_blank" rel="noopener">Histórias de Usuários</a>
+                            <a href="https://engsoftmoderna.info/cap3.html#casos-de-uso" target="_blank" rel="noopener">Casos de Uso</a>
+                            <a href="https://engsoftmoderna.info/cap3.html#produto-m%C3%ADnimo-vi%C3%A1vel-mvp" target="_blank" rel="noopener">MVP</a>
+                            <a href="https://engsoftmoderna.info/cap3.html#testes-ab" target="_blank" rel="noopener">Testes A/B</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 4</span>
+                        <a href="https://engsoftmoderna.info/cap4.html" class="chapter-title" target="_blank" rel="noopener">Modelos</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap4.html#diagrama-de-classes" target="_blank" rel="noopener">Diagramas de Classes</a>
+                            <a href="https://engsoftmoderna.info/cap4.html#diagrama-de-pacotes" target="_blank" rel="noopener">Pacotes</a>
+                            <a href="https://engsoftmoderna.info/cap4.html#diagrama-de-sequ%C3%AAncia" target="_blank" rel="noopener">Sequência</a>
+                            <a href="https://engsoftmoderna.info/cap4.html#diagrama-de-atividades" target="_blank" rel="noopener">Atividades</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 5</span>
+                        <a href="https://engsoftmoderna.info/cap5.html" class="chapter-title" target="_blank" rel="noopener">Princípios de Projeto</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap5.html#integridade-conceitual" target="_blank" rel="noopener">Integridade Conceitual</a>
+                            <a href="https://engsoftmoderna.info/cap5.html#ocultamento-de-informa%C3%A7%C3%A3o" target="_blank" rel="noopener">Ocultamento de Informação</a>
+                            <a href="https://engsoftmoderna.info/cap5.html#coes%C3%A3o" target="_blank" rel="noopener">Coesão</a>
+                            <a href="https://engsoftmoderna.info/cap5.html#acoplamento" target="_blank" rel="noopener">Acoplamento</a>
+                            <a href="https://engsoftmoderna.info/cap5.html#solid-e-outros-princ%C3%ADpios-de-projeto" target="_blank" rel="noopener">SOLID</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 6</span>
+                        <a href="https://engsoftmoderna.info/cap6.html" class="chapter-title" target="_blank" rel="noopener">Padrões de Projeto</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap6.html#f%C3%A1brica" target="_blank" rel="noopener">Fábrica</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#singleton" target="_blank" rel="noopener">Singleton</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#proxy" target="_blank" rel="noopener">Proxy</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#adaptador" target="_blank" rel="noopener">Adaptador</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#fachada" target="_blank" rel="noopener">Fachada</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#decorador" target="_blank" rel="noopener">Decorador</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#strategy" target="_blank" rel="noopener">Strategy</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#observador" target="_blank" rel="noopener">Observador</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#template-method" target="_blank" rel="noopener">Template Method</a>
+                            <a href="https://engsoftmoderna.info/cap6.html#visitor" target="_blank" rel="noopener">Visitor</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 7</span>
+                        <a href="https://engsoftmoderna.info/cap7.html" class="chapter-title" target="_blank" rel="noopener">Arquitetura</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap7.html#arquitetura-em-camadas" target="_blank" rel="noopener">Camadas</a>
+                            <a href="https://engsoftmoderna.info/cap7.html#arquitetura-mvc" target="_blank" rel="noopener">MVC</a>
+                            <a href="https://engsoftmoderna.info/cap7.html#microsservi%C3%A7os" target="_blank" rel="noopener">Microsserviços</a>
+                            <a href="https://engsoftmoderna.info/cap7.html#arquiteturas-orientadas-a-mensagens" target="_blank" rel="noopener">Orientadas a Mensagens</a>
+                            <a href="https://engsoftmoderna.info/cap7.html#arquiteturas-publishsubscribe" target="_blank" rel="noopener">Pub/Sub</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 8</span>
+                        <a href="https://engsoftmoderna.info/cap8.html" class="chapter-title" target="_blank" rel="noopener">Testes</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap8.html#testes-de-unidade" target="_blank" rel="noopener">Unidade</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#princ%C3%ADpios-e-smells" target="_blank" rel="noopener">Princípios e Smells</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#cobertura-de-testes" target="_blank" rel="noopener">Cobertura</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#testabilidade" target="_blank" rel="noopener">Testabilidade</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#mocks" target="_blank" rel="noopener">Mocks</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#desenvolvimento-dirigido-por-testes-tdd" target="_blank" rel="noopener">TDD</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#testes-de-integra%C3%A7%C3%A3o" target="_blank" rel="noopener">Integração</a>
+                            <a href="https://engsoftmoderna.info/cap8.html#testes-de-sistema" target="_blank" rel="noopener">Sistema</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 9</span>
+                        <a href="https://engsoftmoderna.info/cap9.html" class="chapter-title" target="_blank" rel="noopener">Refactoring</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap9.html#cat%C3%A1logo-de-refactorings" target="_blank" rel="noopener">Catálogo</a>
+                            <a href="https://engsoftmoderna.info/cap9.html#pr%C3%A1tica-de-refactoring" target="_blank" rel="noopener">Prática de Refactoring</a>
+                            <a href="https://engsoftmoderna.info/cap9.html#refactorings-automatizados" target="_blank" rel="noopener">Refactorings Automatizados</a>
+                            <a href="https://engsoftmoderna.info/cap9.html#code-smells" target="_blank" rel="noopener">Code Smells</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 10</span>
+                        <a href="https://engsoftmoderna.info/cap10.html" class="chapter-title" target="_blank" rel="noopener">DevOps</a>
+                        <div class="chapter-links">
+                            <a href="https://engsoftmoderna.info/cap10.html#controle-de-vers%C3%B5es" target="_blank" rel="noopener">Controle de Versões</a>
+                            <a href="https://engsoftmoderna.info/cap10.html#integra%C3%A7%C3%A3o-cont%C3%ADnua" target="_blank" rel="noopener">Integração Contínua</a>
+                            <a href="https://engsoftmoderna.info/cap10.html#deployment-cont%C3%ADnuo" target="_blank" rel="noopener">Deployment Contínuo</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Apêndice A</span>
+                        <a href="https://engsoftmoderna.info/capAp.html" class="chapter-title" target="_blank" rel="noopener">Git</a>
+                    </li>
+
+                </ul>
+            </section>
+
+            <!-- Artigos Didáticos -->
+            <section id="artigos" aria-labelledby="titulo-artigos">
+                <h2 id="titulo-artigos">Artigos Didáticos</h2>
+                <p>Confira nossa coletânea de <a href="artigos.html">artigos didáticos</a>, com 25 artigos, 130 páginas e também <a href="https://engsoftmoderna.info/artigos/artigos.html#slides" target="_blank" rel="noopener">slides</a>.</p>
+            </section>
+
+            <!-- Material de Apoio -->
+            <section id="material-apoio" aria-labelledby="titulo-material">
+                <h2 id="titulo-material">Material de Apoio (por capítulo)</h2>
+
+                <p><strong>Slides:</strong></p>
+                <div class="num-grid" role="list">
+                    <a href="https://docs.google.com/presentation/d/1AYyIKxBV2FasXLQYF5Jj4pbkyRpwYLh1vgLhXDc6_Bk/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 1" role="listitem">1</a>
+                    <a href="https://docs.google.com/presentation/d/1lUlZ97iXmMJobH7ULTfAY-qsjS8Mca8devYfpQad1ps/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 2" role="listitem">2</a>
+                    <a href="https://docs.google.com/presentation/d/10K4ikSw6veIi1z4e8LeE-tPUNgUPLwSzQT_KUdf390I/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 3" role="listitem">3</a>
+                    <a href="https://docs.google.com/presentation/d/1OcoL26YImWEokIOc0vrf7uQ9dR5sg5RmG-1tD8V75M8/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 4" role="listitem">4</a>
+                    <a href="https://docs.google.com/presentation/d/1QK9PNf7F4jv4cNDEGdB54z7YZV7uOYg-QO6FN2YUYtk/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 5" role="listitem">5</a>
+                    <a href="https://docs.google.com/presentation/d/1bfC86OOt-9jpPO5Y6hB6XeLl69mVXAhKkwGduZglCPo/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 6" role="listitem">6</a>
+                    <a href="https://docs.google.com/presentation/d/1zgXK9AtNpdzBAdnxr1f7YPCYxKODhW6CcuYv3G_SCp8/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 7" role="listitem">7</a>
+                    <a href="https://docs.google.com/presentation/d/1gNoRwDd1UqjymaJIUlsuvGzKF4kVeAo4fnjTTBrs4g0/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 8" role="listitem">8</a>
+                    <a href="https://docs.google.com/presentation/d/1Hkf6RuuPLRVdNHOnE1e4_gMVGUKpGRU4G2y1LQlNWfQ/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 9" role="listitem">9</a>
+                    <a href="https://docs.google.com/presentation/d/1sfjmDSnQITamFGsiYnCQY0mllz1SRmpOkvsQP70Lb68/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides capítulo 10" role="listitem">10</a>
+                    <a href="https://docs.google.com/presentation/d/1krUvmN_d-jWH19EKWHK0sEm_yW2OV41u-oufFIqMHCE/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides apêndice" role="listitem">Ap</a>
+                </div>
+
+                <p><strong>Exercícios Verdadeiro ou Falso:</strong></p>
+                <div class="num-grid" role="list">
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/1" target="_blank" rel="noopener" role="listitem">1</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/2" target="_blank" rel="noopener" role="listitem">2</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/3" target="_blank" rel="noopener" role="listitem">3</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/4" target="_blank" rel="noopener" role="listitem">4</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/5" target="_blank" rel="noopener" role="listitem">5</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/6" target="_blank" rel="noopener" role="listitem">6</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/7" target="_blank" rel="noopener" role="listitem">7</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/8" target="_blank" rel="noopener" role="listitem">8</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/9" target="_blank" rel="noopener" role="listitem">9</a>
+                    <a href="https://engsoftmoderna.info/exercicios/exvf.html#/cap/10" target="_blank" rel="noopener" role="listitem">10</a>
+                </div>
+
+                <p><strong>Videoaulas:</strong></p>
+                <div class="num-grid" role="list">
+                    <a href="https://youtu.be/8qSvDepujTo" target="_blank" rel="noopener" aria-label="Videoaula capítulo 1" role="listitem">1</a>
+                    <a href="https://youtu.be/groQ6o-SSbk" target="_blank" rel="noopener" aria-label="Videoaula capítulo 2" role="listitem">2</a>
+                    <a href="https://youtu.be/GHdxkig5NhQ" target="_blank" rel="noopener" aria-label="Videoaula capítulo 3" role="listitem">3</a>
+                    <a href="https://youtu.be/L3YnzEmse2Q" target="_blank" rel="noopener" aria-label="Videoaula capítulo 4" role="listitem">4</a>
+                    <a href="https://youtu.be/WXDLrEmOQM0" target="_blank" rel="noopener" aria-label="Videoaula capítulo 5" role="listitem">5</a>
+                    <a href="https://youtu.be/3AJMXqMsTu8" target="_blank" rel="noopener" aria-label="Videoaula capítulo 6" role="listitem">6</a>
+                    <a href="https://youtu.be/VPmG3E_2LIE" target="_blank" rel="noopener" aria-label="Videoaula capítulo 7" role="listitem">7</a>
+                    <a href="https://youtu.be/YCsXtEG51tA" target="_blank" rel="noopener" aria-label="Videoaula capítulo 8" role="listitem">8</a>
+                    <a href="https://youtu.be/BSnnTl4-TMA" target="_blank" rel="noopener" aria-label="Videoaula capítulo 9" role="listitem">9</a>
+                    <a href="https://youtu.be/odqn_6S-p6k" target="_blank" rel="noopener" aria-label="Videoaula capítulo 10" role="listitem">10</a>
+                </div>
+
+                <ul class="resource-list">
+                    <li>Palestra sobre Impacto de IA em ES:
+                        <a href="https://www.youtube.com/live/CLUHM8yuBUk?si=5g2JjsFwon_Czgia" target="_blank" rel="noopener">YouTube</a> ·
+                        <a href="https://docs.google.com/presentation/d/e/2PACX-1vSfePAZUM8yuer5tycQ7WcT9ugLY8S8VUIFtLVsr_v7BrLlx4kxHu-7aUgglfconH3LRH6h-uNxx8p8/pub?start=false&loop=false" target="_blank" rel="noopener">Slides</a>
+                    </li>
+                    <li>Conceitos de ES em <a href="https://docs.google.com/presentation/d/e/2PACX-1vRFsVVQ0QgwlhnuKjgAOIR3E2fUC2XADunj6csQVpJt6Bs6Mrt5bYYlmW3yUwZYflakVszKfk6v7QvG/pub?start=false&loop=false" target="_blank" rel="noopener">1 slide</a></li>
+                    <li><a href="https://github.com/mtov/ESM-ExemplosCodigo" target="_blank" rel="noopener">Código fonte</a> dos exemplos do livro no GitHub</li>
+                    <li><a href="https://engsoftmoderna.info/praticas.html" target="_blank" rel="noopener">Roteiros</a> de aulas práticas usando GitHub</li>
+                </ul>
+            </section>
+
+            <!-- Podcast -->
+            <section id="podcast" aria-labelledby="titulo-podcast">
+                <h2 id="titulo-podcast">Podcast</h2>
+                <p>Podcast gerado por IA com resumos dos capítulos do livro — útil para revisão dos temas. Ouça no
+                    <a href="https://open.spotify.com/show/4yEKBtRMbtwLtgXP8Gq0Fa" target="_blank" rel="noopener">Spotify</a>
+                    ou assine o <a href="https://anchor.fm/s/105ed5fac/podcast/rss" target="_blank" rel="noopener">feed RSS</a>.
+                </p>
+            </section>
+
+            <!-- Material para Professores -->
+            <section id="professores" aria-labelledby="titulo-prof">
+                <h2 id="titulo-prof">Material para Professores</h2>
+                <ul class="resource-list">
+                    <li>Respostas dos Exercícios: envie uma <a href="https://forms.gle/KbzvMx5RLnqPR7uq7" target="_blank" rel="noopener">solicitação</a>.</li>
+                    <li>Cadastre-se na nossa <a href="https://forms.gle/CYMdHpGKXjXHcBXR8" target="_blank" rel="noopener">newsletter</a> para professores.</li>
+                </ul>
+            </section>
+
+            <!-- Depoimentos -->
+            <section id="depoimentos" aria-labelledby="titulo-dep">
+                <h2 id="titulo-dep">Depoimentos</h2>
+                <p>Veja alguns <a href="https://engsoftmoderna.info/depoimentos.html" target="_blank" rel="noopener">depoimentos</a> e também <a href="https://engsoftmoderna.info/videos.html" target="_blank" rel="noopener">links</a> para palestras e entrevistas sobre o livro.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" aria-labelledby="titulo-faq">
+                <h2 id="titulo-faq">Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <p class="faq-q">Vocês vão manter uma versão aberta do livro?</p>
+                    <p>Sim, vamos manter a versão em HTML aberta e gratuita.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Qual a diferença entre as versões HTML e e-book?</p>
+                    <p>O conteúdo é o mesmo, mas o e-book tem uma diagramação mais apurada.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Qual a editora do livro?</p>
+                    <p>O livro é uma autopublicação. A versão em papel é impressa e entregue pela <a href="https://www.umlivro.com.br" target="_blank" rel="noopener">UmLivro</a>.</p>
+                </div>
+            </section>
+
+            <!-- Como Citar -->
+            <section id="citar" aria-labelledby="titulo-citar">
+                <h2 id="titulo-citar">Como Citar o Livro</h2>
+                <p>Marco Tulio Valente. <em>Engenharia de Software Moderna: Princípios e Práticas para Desenvolvimento de Software com Produtividade</em>, Editora: Independente, 2020. (<a href="https://engsoftmoderna.info/bibtex.txt" target="_blank" rel="noopener">bibtex</a>)</p>
+                <p>ISBN: 978-65-00-01950-6 (impresso) e 978-65-00-00077-1 (e-book).</p>
+            </section>
+
+            <!-- Contato -->
+            <section id="contato" aria-labelledby="titulo-contato">
+                <h2 id="titulo-contato">Contato</h2>
+                <p>Para enviar sugestões ou reportar erros (mesmo que pequenos erros de redação), use este <a href="https://forms.gle/YhKNRZjkHu7ASc7M8" target="_blank" rel="noopener">formulário</a>.</p>
+                <p>Você pode também nos seguir no
+                    <a href="https://www.linkedin.com/in/mtov/" target="_blank" rel="noopener">LinkedIn</a> ou
+                    <a href="https://twitter.com/engsoftmoderna" target="_blank" rel="noopener">X (Twitter)</a>.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>Sobre o Livro</h3>
+                <p>Escrito por <strong style="color:#fff;">Marco Tulio Valente</strong>, professor da UFMG. Destinado a estudantes de graduação em Computação e profissionais da área.</p>
+                <p style="margin-top:.8rem;">Todos os direitos reservados.<br>Versão apenas para uso pessoal.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Capítulos</h3>
+                <ul>
+                    <li><a href="#versao-html">Cap. 1 — Introdução</a></li>
+                    <li><a href="#versao-html">Cap. 2 — Processos</a></li>
+                    <li><a href="#versao-html">Cap. 3 — Requisitos</a></li>
+                    <li><a href="#versao-html">Cap. 4 — Modelos</a></li>
+                    <li><a href="#versao-html">Caps. 5 a 10 →</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">← Voltar ao Artigo Principal</a></li>
+                    <li><a href="manutencao.html">Manutenção de Software (livro 2)</a></li>
+                    <li><a href="artigos.html">Artigos Didáticos</a></li>
+                    <li><a href="https://forms.gle/YhKNRZjkHu7ASc7M8" target="_blank" rel="noopener">Reportar Erro</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="footer-credits">
+                <span class="tag">Reestruturação</span>
+                <span>Site reestruturado por <strong style="color:rgba(255,255,255,.8);">Renato Moreira Santos Faria</strong></span>
+            </div>
+            <a
+                href="https://github.com/renasrenas2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-link"
+                aria-label="Perfil do GitHub de Renato Moreira Santos Faria (abre em nova aba)"
+            >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                github.com/renasrenas2
+            </a>
+        </div>
+    </footer>
+
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
