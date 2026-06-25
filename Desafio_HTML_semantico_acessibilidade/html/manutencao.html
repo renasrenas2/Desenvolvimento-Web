@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentos de Manutenção de Software – ES Moderna</title>
+
+    <meta name="description" content="Livro sobre Manutenção de Software, voltado para estudantes de graduação e para profissionais que buscam conhecimento básico na área." />
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://engsoftmoderna.info/figs/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/manutencao.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
+
+    <!-- ══ TOPBAR ══ -->
+    <div class="topbar" role="banner">
+        <div class="topbar-inner">
+            <a href="index.html" class="nav-brand">
+                <img
+                    src="https://engsoftmoderna.info/figs/capa/capa-principal.png"
+                    alt="Capa do livro Engenharia de Software Moderna – voltar à página principal"
+                />
+                <div class="nav-brand-text">
+                    <span class="nav-brand-title">ES Moderna</span>
+                    <span class="nav-brand-sub">Marco Tulio Valente</span>
+                </div>
+            </a>
+
+            <button class="hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menu de navegação">☰</button>
+
+            <nav aria-label="Navegação principal">
+                <ul class="nav-links" id="primary-nav" role="list">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#capitulos">Capítulos</a></li>
+                    <li><a href="#slides">Slides</a></li>
+                    <li><a href="#instituicoes">Instituições</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="index.html">← Artigo</a></li>
+                </ul>
+            </nav>
+
+            <button id="dark-mode-toggle" type="button" aria-pressed="false">🌙 Dark</button>
+        </div>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <div class="hero" aria-label="Apresentação do livro">
+        <div class="hero-inner">
+            <img
+                src="https://manutencaosoftware.org/figs/capa/capa.png"
+                alt="Capa do livro Fundamentos de Manutenção de Software"
+                class="hero-cover"
+            />
+            <div>
+                <p class="hero-eyebrow">Segundo livro da série · Engenharia de Software Moderna</p>
+                <h1 class="hero-title">Fundamentos de Manutenção de Software</h1>
+                <p class="hero-series">
+                    Série <a href="https://engsoftmoderna.info/">Engenharia de Software Moderna</a>
+                </p>
+                <div class="hero-author">
+                    <span aria-hidden="true">✍️</span>
+                    <span>Marco Tulio Valente · ASERG · DCC · UFMG</span>
+                </div>
+                <div class="hero-badges">
+                    <span class="badge">10 Capítulos</span>
+                    <span class="badge">240 Páginas</span>
+                    <span class="badge">700+ Slides</span>
+                    <span class="badge">Versão Web Gratuita</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <main id="main-content" tabindex="-1">
+        <div class="page-wrap">
+
+            <!-- Sobre -->
+            <section id="sobre" aria-labelledby="titulo-sobre">
+                <h2 id="titulo-sobre">Sobre o Livro</h2>
+                <p>Manutenção é uma área essencial da Engenharia de Software. Na prática, depois que a primeira versão de um sistema entra em produção, tudo passa a ser manutenção: compreender o código existente, implementar novas funcionalidades e realizar refatorações e modernizações. Portanto, manutenção de software vai além de corrigir bugs ou lidar com sistemas legados — embora isso também seja importante.</p>
+                <p>O segundo livro da série sobre Engenharia de Software Moderna trata exclusivamente dessa área de grande relevância. Ele possui 10 capítulos e 240 páginas. Também estão disponíveis cerca de 700 slides.</p>
+                <p>Licença de uso: versão para uso pessoal, sendo proibida sua redistribuição ou modificação.</p>
+            </section>
+
+            <!-- Capítulos -->
+            <section id="capitulos" aria-labelledby="titulo-capitulos">
+                <h2 id="titulo-capitulos">Versão Web — Capítulos</h2>
+                <ul class="chapter-list" role="list">
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Prefácio</span>
+                        <a href="https://manutencaosoftware.org/cap0.html" class="chapter-title" target="_blank" rel="noopener">Prefácio</a>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 1</span>
+                        <a href="https://manutencaosoftware.org/cap1.html" class="chapter-title" target="_blank" rel="noopener">Introdução</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap1.html#tipos-de-manuten%C3%A7%C3%A3o" target="_blank" rel="noopener">Tipos de Manutenção</a>
+                            <a href="https://manutencaosoftware.org/cap1.html#compreens%C3%A3o-de-c%C3%B3digo" target="_blank" rel="noopener">Compreensão</a>
+                            <a href="https://manutencaosoftware.org/cap1.html#um-pouco-de-hist%C3%B3ria" target="_blank" rel="noopener">História</a>
+                            <a href="https://manutencaosoftware.org/cap1.html#manutenibilidade" target="_blank" rel="noopener">Manutenibilidade</a>
+                            <a href="https://manutencaosoftware.org/cap1.html#papel-dos-modelos-de-linguagem" target="_blank" rel="noopener">LLMs</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 2</span>
+                        <a href="https://manutencaosoftware.org/cap2.html" class="chapter-title" target="_blank" rel="noopener">Código Limpo</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap2.html#adote-um-guia-de-estilo" target="_blank" rel="noopener">Guias</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#use-verificadores-de-estilo-e-formatadores" target="_blank" rel="noopener">Verificadores</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#escolha-nomes-leg%C3%ADveis" target="_blank" rel="noopener">Nomes Legíveis</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#evite-n%C3%BAmeros-m%C3%A1gicos" target="_blank" rel="noopener">Números Mágicos</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#adote-uma-linguagem-ub%C3%ADqua" target="_blank" rel="noopener">Linguagem Ubíqua</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#implemente-fun%C3%A7%C3%B5es-coesas-e-desacopladas" target="_blank" rel="noopener">Funções</a>
+                            <a href="https://manutencaosoftware.org/cap2.html#separe-os-fluxos-de-execu%C3%A7%C3%A3o-normal-e-excepcional" target="_blank" rel="noopener">Exceções</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 3</span>
+                        <a href="https://manutencaosoftware.org/cap3.html" class="chapter-title" target="_blank" rel="noopener">Documentação de Código</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap3.html#geradores-de-documenta%C3%A7%C3%A3o" target="_blank" rel="noopener">Javadoc</a>
+                            <a href="https://manutencaosoftware.org/cap3.html#coment%C3%A1rios-p%C3%BAblicos" target="_blank" rel="noopener">Comentários Públicos</a>
+                            <a href="https://manutencaosoftware.org/cap3.html#coment%C3%A1rios-privados" target="_blank" rel="noopener">Privados</a>
+                            <a href="https://manutencaosoftware.org/cap3.html#anti-padr%C3%B5es-de-coment%C3%A1rios" target="_blank" rel="noopener">Anti-Padrões</a>
+                            <a href="https://manutencaosoftware.org/cap3.html#documenta%C3%A7%C3%A3o-de-apis-rest" target="_blank" rel="noopener">APIs Web</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 4</span>
+                        <a href="https://manutencaosoftware.org/cap4.html" class="chapter-title" target="_blank" rel="noopener">Código Flexível a Mudanças</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap4.html#ocultamento-de-informa%C3%A7%C3%A3o" target="_blank" rel="noopener">Ocultamento de Informação</a>
+                            <a href="https://manutencaosoftware.org/cap4.html#breaking-changes" target="_blank" rel="noopener">Breaking Changes</a>
+                            <a href="https://manutencaosoftware.org/cap4.html#c%C3%B3digo-aberto-a-customiza%C3%A7%C3%B5es" target="_blank" rel="noopener">Customizações</a>
+                            <a href="https://manutencaosoftware.org/cap4.html#otimiza%C3%A7%C3%A3o-prematura" target="_blank" rel="noopener">Otimização Prematura</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 5</span>
+                        <a href="https://manutencaosoftware.org/cap5.html" class="chapter-title" target="_blank" rel="noopener">Bugs</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap5.html#tipos-de-bugs" target="_blank" rel="noopener">Tipos</a>
+                            <a href="https://manutencaosoftware.org/cap5.html#ferramentas-para-detec%C3%A7%C3%A3o-de-bugs" target="_blank" rel="noopener">Ferramentas</a>
+                            <a href="https://manutencaosoftware.org/cap5.html#sistemas-de-rastreamento-de-bugs" target="_blank" rel="noopener">Rastreamento</a>
+                            <a href="https://manutencaosoftware.org/cap5.html#ciclo-de-vida-de-bugs" target="_blank" rel="noopener">Ciclo de Vida</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 6</span>
+                        <a href="https://manutencaosoftware.org/cap6.html" class="chapter-title" target="_blank" rel="noopener">Depuração</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap6.html#passos-para-depura%C3%A7%C3%A3o" target="_blank" rel="noopener">Passos</a>
+                            <a href="https://manutencaosoftware.org/cap6.html#psicologia-da-depura%C3%A7%C3%A3o" target="_blank" rel="noopener">Psicologia</a>
+                            <a href="https://manutencaosoftware.org/cap6.html#depuradores" target="_blank" rel="noopener">Depuradores</a>
+                            <a href="https://manutencaosoftware.org/cap6.html#comandos-assert" target="_blank" rel="noopener">Asserts</a>
+                            <a href="https://manutencaosoftware.org/cap6.html#logging" target="_blank" rel="noopener">Logging</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 7</span>
+                        <a href="https://manutencaosoftware.org/cap7.html" class="chapter-title" target="_blank" rel="noopener">Dívida Técnica</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap7.html#tipos-de-d%C3%ADvida-t%C3%A9cnica" target="_blank" rel="noopener">Tipos</a>
+                            <a href="https://manutencaosoftware.org/cap7.html#d%C3%ADvida-t%C3%A9cnica-n%C3%A3o-planejada" target="_blank" rel="noopener">Não Planejada</a>
+                            <a href="https://manutencaosoftware.org/cap7.html#gerenciamento-de-d%C3%ADvida-t%C3%A9cnica" target="_blank" rel="noopener">Gerenciamento</a>
+                            <a href="https://manutencaosoftware.org/cap7.html#outras-met%C3%A1foras" target="_blank" rel="noopener">Outras Metáforas</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 8</span>
+                        <a href="https://manutencaosoftware.org/cap8.html" class="chapter-title" target="_blank" rel="noopener">Sistemas Legados</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap8.html#t%C3%A9cnicas-para-manuten%C3%A7%C3%A3o" target="_blank" rel="noopener">Técnicas para Manutenção</a>
+                            <a href="https://manutencaosoftware.org/cap8.html#descontinua%C3%A7%C3%A3o" target="_blank" rel="noopener">Descontinuação</a>
+                            <a href="https://manutencaosoftware.org/cap8.html#extra%C3%A7%C3%A3o-de-servi%C3%A7os" target="_blank" rel="noopener">Extração de Serviços</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 9</span>
+                        <a href="https://manutencaosoftware.org/cap9.html" class="chapter-title" target="_blank" rel="noopener">Processos</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap9.html#pr%C3%A1ticas-para-manuten%C3%A7%C3%A3o-de-software" target="_blank" rel="noopener">Práticas</a>
+                            <a href="https://manutencaosoftware.org/cap9.html#m%C3%A9tricas" target="_blank" rel="noopener">Métricas</a>
+                            <a href="https://manutencaosoftware.org/cap9.html#modelos-de-branches" target="_blank" rel="noopener">Modelos de Branches</a>
+                            <a href="https://manutencaosoftware.org/cap9.html#conventional-commits" target="_blank" rel="noopener">Conventional Commits</a>
+                        </div>
+                    </li>
+
+                    <li class="chapter-item">
+                        <span class="chapter-num">Cap. 10</span>
+                        <a href="https://manutencaosoftware.org/cap10.html" class="chapter-title" target="_blank" rel="noopener">Manutenção Usando IA</a>
+                        <div class="chapter-links">
+                            <a href="https://manutencaosoftware.org/cap10.html#assistentes-de-c%C3%B3digo" target="_blank" rel="noopener">Assistentes</a>
+                            <a href="https://manutencaosoftware.org/cap10.html#agentes-de-c%C3%B3digo" target="_blank" rel="noopener">Agentes</a>
+                            <a href="https://manutencaosoftware.org/cap10.html#integra%C3%A7%C3%A3o-com-sistemas-externos" target="_blank" rel="noopener">Model Context Protocol</a>
+                            <a href="https://manutencaosoftware.org/cap10.html#engenharia-de-prompts" target="_blank" rel="noopener">Engenharia de Prompts</a>
+                        </div>
+                    </li>
+
+                </ul>
+            </section>
+
+            <!-- Slides -->
+            <section id="slides" aria-labelledby="titulo-slides">
+                <h2 id="titulo-slides">Slides</h2>
+                <p>Mais de 700 slides disponíveis por capítulo:</p>
+                <div class="slides-grid" role="list">
+                    <a href="https://docs.google.com/presentation/d/1vFISpPcnJys5teMyetjKLKF-fsDd10Tpb7SFHYqjbaQ/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 1" role="listitem">1</a>
+                    <a href="https://docs.google.com/presentation/d/12ni2oMo4hZ7MILz0BL_iwT_VMT7-sI_iqhBqWo8nx9k/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 2" role="listitem">2</a>
+                    <a href="https://docs.google.com/presentation/d/1vhezZ7xUMrlYXUwk8pqkYqnkz5i80V-0U3c2myqBF5o/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 3" role="listitem">3</a>
+                    <a href="https://docs.google.com/presentation/d/1WVeA9pd7W9KLxoWM73demtdSZ7aKC_JQ_oDAd8uhBN4/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 4" role="listitem">4</a>
+                    <a href="https://docs.google.com/presentation/d/1_Chw57H5xHwTzBiOc27OOSlJv-0V-05oQnl9QED5fFs/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 5" role="listitem">5</a>
+                    <a href="https://docs.google.com/presentation/d/1KvI5FBUSD5xsHxTNI15BkJibQ973GDJKyBBOYqDRzF0/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 6" role="listitem">6</a>
+                    <a href="https://docs.google.com/presentation/d/1ZfpHao184R0P7m3yWp7CFsPg6SwrfxYMnX4sQbCzLNU/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 7" role="listitem">7</a>
+                    <a href="https://docs.google.com/presentation/d/1cLqwGPVhs18JeElxL1Xycjmsy3YJzWrSjzrzGZDr67M/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 8" role="listitem">8</a>
+                    <a href="https://docs.google.com/presentation/d/1sPRPxzUaFJfmKUrXxCDDl-M93dDjDj_pBrDOKLgBs2A/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 9" role="listitem">9</a>
+                    <a href="https://docs.google.com/presentation/d/1VEnVN0aV7AiCQoT4Do9yWBctOCN-rzU1rFk12WTMXM8/edit?usp=sharing" target="_blank" rel="noopener" aria-label="Slides do capítulo 10" role="listitem">10</a>
+                </div>
+            </section>
+
+            <!-- Instituições -->
+            <section id="instituicoes" aria-labelledby="titulo-inst">
+                <h2 id="titulo-inst">Instituições que Já Usam o Livro</h2>
+                <div class="institution-list" aria-label="Lista de instituições">
+                    <span class="inst-tag">UFMG</span>
+                    <span class="inst-tag">UFC</span>
+                    <span class="inst-tag">Unicesumar</span>
+                    <span class="inst-tag">Univiçosa</span>
+                    <span class="inst-tag">UFPI</span>
+                    <span class="inst-tag">UFRGS</span>
+                    <span class="inst-tag">IFPI</span>
+                    <span class="inst-tag">UNISINOS</span>
+                    <span class="inst-tag">UESB</span>
+                    <span class="inst-tag">Fatec Itapira</span>
+                    <span class="inst-tag">UFOP</span>
+                </div>
+                <p><mark>Novo</mark> Se você for professor e estiver usando o livro, favor preencher o <a href="https://forms.gle/VfmwgXpanMcQHa5E9" target="_blank" rel="noopener">formulário</a>.</p>
+            </section>
+
+            <!-- FAQ -->
+            <section id="faq" aria-labelledby="titulo-faq">
+                <h2 id="titulo-faq">Perguntas Frequentes</h2>
+
+                <div class="faq-item">
+                    <p class="faq-q">Qual o público-alvo?</p>
+                    <p>Estudantes de graduação e profissionais em início de carreira.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">O livro pode ser usado em quais disciplinas?</p>
+                    <p>Manutenção e Evolução de Software, Qualidade de Software ou em uma segunda disciplina sobre Engenharia de Software.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-q">Qual livro devo ler primeiro: Engenharia de Software Moderna ou este?</p>
+                    <p>Engenharia de Software Moderna, principalmente se for estudante.</p>
+                </div>
+            </section>
+
+            <!-- Como Citar -->
+            <section id="citar" aria-labelledby="titulo-citar">
+                <h2 id="titulo-citar">Como Citar</h2>
+                <p>Você pode citar o livro em monografias, dissertações e artigos da seguinte forma:</p>
+                <blockquote>
+                    <p>Marco Tulio Valente. <em>Fundamentos de Manutenção de Software</em>, Editora Independente, 2026. (<a href="https://manutencaosoftware.org/bibtex.txt" target="_blank" rel="noopener">bibtex</a>)</p>
+                </blockquote>
+            </section>
+
+            <!-- Contato -->
+            <section id="contato" aria-labelledby="titulo-contato">
+                <h2 id="titulo-contato">Contato</h2>
+                <p>Para enviar sugestões ou reportar erros (mesmo que de redação), use este <a href="https://forms.gle/FoCkxAc12aYWE9ty9" target="_blank" rel="noopener">formulário</a>.</p>
+                <p>Você pode também nos seguir no
+                    <a href="https://www.linkedin.com/in/mtov/" target="_blank" rel="noopener">LinkedIn</a> ou
+                    <a href="https://twitter.com/engsoftmoderna" target="_blank" rel="noopener">X (Twitter)</a>.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>Sobre o Livro</h3>
+                <p>Segundo livro da série Engenharia de Software Moderna, escrito por <strong style="color:#fff;">Marco Tulio Valente</strong> — professor da UFMG.</p>
+                <p style="margin-top:.8rem;">Todos os direitos reservados.<br>Versão apenas para uso pessoal.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Capítulos</h3>
+                <ul>
+                    <li><a href="#capitulos">Cap. 1 — Introdução</a></li>
+                    <li><a href="#capitulos">Cap. 2 — Código Limpo</a></li>
+                    <li><a href="#capitulos">Cap. 3 — Documentação</a></li>
+                    <li><a href="#capitulos">Cap. 4 — Código Flexível</a></li>
+                    <li><a href="#capitulos">Cap. 5 a 10 →</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Links Úteis</h3>
+                <ul>
+                    <li><a href="index.html">← Voltar ao Artigo Principal</a></li>
+                    <li><a href="https://engsoftmoderna.info">ES Moderna (livro 1)</a></li>
+                    <li><a href="https://forms.gle/FoCkxAc12aYWE9ty9" target="_blank" rel="noopener">Reportar Erro</a></li>
+                    <li><a href="https://forms.gle/VfmwgXpanMcQHa5E9" target="_blank" rel="noopener">Sou Professor</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="footer-credits">
+                <span class="tag">Reestruturação</span>
+                <span>Site reestruturado por <strong style="color:rgba(255,255,255,.8);">Renato Moreira Santos Faria</strong></span>
+            </div>
+            <a
+                href="https://github.com/renasrenas2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-link"
+                aria-label="Perfil do GitHub de Renato Moreira Santos Faria (abre em nova aba)"
+            >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                github.com/renasrenas2
+            </a>
+        </div>
+    </footer>
+
+    <script src="../js/navbar.js"></script>
+</body>
+</html>
