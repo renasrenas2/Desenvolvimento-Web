@@ -2,7 +2,7 @@
 
 **Disciplina:** Desenvolvimento Web — CEUB  
 **Professora:** Kadidja Valéria  
-**Aluno:** Renato Moreira Santos Faria  
+**Alunos:** Renato Moreira Santos Faria e Guilherme Carvalho
 **Metodologia:** ABP (Aprendizagem Baseada em Projetos) — Unidades 4, 5 e 6
 
 ---
